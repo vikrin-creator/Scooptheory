@@ -1,58 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --primary: #F7D4D4; /* Light Pink */
+  --secondary: #A8D8B9; /* Mint Green */
+  --text-dark: #4A2E2C; /* Chocolate Brown */
+  --background-light: #F5EEDC; /* Vanilla Beige */
+  --background-dark: #2C1A19; /* Dark Chocolate for Dark Mode */
+  --text-light: #F5EEDC; /* Vanilla Beige for Dark Mode Text */
 }
 
-body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-  scroll-behavior: smooth;
-}
-
-#root {
-  width: 100%;
-  min-height: 100vh;
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 
 @layer base {
-  html {
-    font-family: 'Inter', system-ui, sans-serif;
-    scroll-behavior: smooth;
+  body {
+    @apply bg-background-light text-text-dark font-display dark:bg-background-dark dark:text-text-light;
   }
   
-  * {
-    scroll-behavior: smooth;
-  }
-}
-
-@layer components {
-  .btn-primary {
-    @apply inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-200;
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
   }
   
-  .btn-secondary {
-    @apply inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-200;
-  }
-
-  .input-primary {
-    @apply block w-full border-gray-300 rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500 sm:text-sm transition-colors duration-200;
-  }
-
-  .card {
-    @apply bg-white shadow rounded-lg overflow-hidden transition-shadow duration-200 hover:shadow-lg;
-  }
-  
-  .section-padding {
-    @apply py-16 md:py-20;
-  }
-  
-  .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
+  h1 { @apply text-4xl sm:text-5xl md:text-6xl; }
+  h2 { @apply text-3xl sm:text-4xl; }
+  h3 { @apply text-2xl sm:text-3xl; }
 }
