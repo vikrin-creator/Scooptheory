@@ -33,6 +33,160 @@ const Menu = () => {
 
       {/* Main Content */}
       <main className="flex-grow">
+        {/* Hero Section */}
+        <section className="relative py-20 md:py-32 overflow-hidden">
+          <div className="absolute inset-0 z-0">
+            <div className="bg-gradient-to-r from-primary/20 to-secondary/20 w-full h-full"></div>
+          </div>
+          <div className="container mx-auto px-6 relative z-10">
+            <div className="max-w-3xl mx-auto text-center">
+              <h1 className="text-4xl md:text-6xl font-black leading-tight tracking-tighter text-text-dark dark:text-text-light mb-6">
+                Our Delicious Menu
+              </h1>
+              <p className="text-xl md:text-2xl text-text-dark/80 dark:text-text-light/80 mb-10 max-w-2xl mx-auto">
+                Handcrafted with love, served with passion. Discover our carefully curated selection of premium beverages.
+              </p>
+              <div className="flex flex-col sm:flex-row justify-center gap-4">
+                <Link 
+                  to="/gallery" 
+                  className="inline-flex items-center justify-center px-8 py-4 bg-primary text-text-dark font-bold rounded-full shadow-lg hover:bg-primary/90 transition-all duration-300 transform hover:scale-105"
+                >
+                  View Full Menu
+                </Link>
+                <Link 
+                  to="/contact" 
+                  className="inline-flex items-center justify-center px-8 py-4 bg-text-dark/10 text-text-dark font-bold rounded-full shadow-lg hover:bg-text-dark/20 transition-all duration-300"
+                >
+                  Visit Our Store
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Introduction Section */}
+        <section className="py-16 bg-background-light dark:bg-background-dark">
+          <div className="container mx-auto px-6">
+            <div className="flex flex-col lg:flex-row items-center gap-12">
+              <div className="lg:w-1/2 w-full">
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                  <div 
+                    className="h-96 w-full bg-cover bg-center" 
+                    style={{ backgroundImage: 'url(public/images/uji_matcha.jpg)' }}
+                  ></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-background-dark/50 to-transparent"></div>
+                </div>
+              </div>
+              <div className="lg:w-1/2 lg:pl-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-text-dark dark:text-text-light mb-6">
+                  Crafted to Perfection
+                </h2>
+                <p className="text-lg text-text-dark/80 dark:text-text-light/80 mb-6 leading-relaxed">
+                  Every beverage on our menu is carefully crafted using the finest ingredients sourced from local suppliers. Our baristas are passionate about creating unique flavor combinations that delight your taste buds.
+                </p>
+                <p className="text-lg text-text-dark/80 dark:text-text-light/80 mb-8 leading-relaxed">
+                  From our signature milkshakes to our premium tea blends, each drink tells a story of quality and creativity. We believe in offering something special for every palate.
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <div className="flex items-center">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary flex items-center justify-center mr-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-text-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span className="text-text-dark/80 dark:text-text-light/80">Fresh Ingredients Daily</span>
+                  </div>
+                  <div className="flex items-center">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary flex items-center justify-center mr-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-text-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span className="text-text-dark/80 dark:text-text-light/80">Customizable Options</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Featured Menu Items */}
+        <section className="py-20 bg-secondary/10 dark:bg-background-dark">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-text-dark dark:text-text-light mb-4">
+                Fan Favorites
+              </h2>
+              <p className="text-xl text-text-dark/80 dark:text-text-light/80 max-w-2xl mx-auto">
+                Discover our most beloved creations that keep customers coming back for more
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* Featured Item 1 */}
+              <div className="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group">
+                <div className="h-48 bg-cover bg-center" style={{ backgroundImage: 'url(/images/milkshakes.jpg)' }}></div>
+                <div className="p-6">
+                  <div className="flex justify-between items-start mb-3">
+                    <h3 className="text-xl font-bold text-text-dark dark:text-text-light">Midnight Cookies & Cream</h3>
+                    <span className="text-lg font-bold text-primary">$6.99</span>
+                  </div>
+                  <p className="text-text-dark/70 dark:text-text-light/70 mb-4">
+                    Our signature milkshake with Oreo cookies and vanilla ice cream
+                  </p>
+                  <button className="text-primary font-medium flex items-center group-hover:underline">
+                    Add to Order
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              
+              {/* Featured Item 2 */}
+              <div className="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group">
+                <div className="h-48 bg-cover bg-center" style={{ backgroundImage: 'url(/images/matcha_drinks.jpg)' }}></div>
+                <div className="p-6">
+                  <div className="flex justify-between items-start mb-3">
+                    <h3 className="text-xl font-bold text-text-dark dark:text-text-light">Matcha Latte</h3>
+                    <span className="text-lg font-bold text-primary">$5.49</span>
+                  </div>
+                  <p className="text-text-dark/70 dark:text-text-light/70 mb-4">
+                    Premium ceremonial matcha with steamed milk and honey
+                  </p>
+                  <button className="text-primary font-medium flex items-center group-hover:underline">
+                    Add to Order
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              
+              {/* Featured Item 3 */}
+              <div className="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group">
+                <div className="h-48 bg-cover bg-center" style={{ backgroundImage: 'url(/images/milk_tea.jpg)' }}></div>
+                <div className="p-6">
+                  <div className="flex justify-between items-start mb-3">
+                    <h3 className="text-xl font-bold text-text-dark dark:text-text-light">Brown Sugar Boba</h3>
+                    <span className="text-lg font-bold text-primary">$5.99</span>
+                  </div>
+                  <p className="text-text-dark/70 dark:text-text-light/70 mb-4">
+                    Freshly made brown sugar syrup with house-made boba pearls
+                  </p>
+                  <button className="text-primary font-medium flex items-center group-hover:underline">
+                    Add to Order
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Existing Menu Categories */}
         <div className="container mx-auto px-6 py-12 lg:py-20">
           <div className="mb-12 text-center">
             <h2 className="text-4xl font-black leading-tight tracking-tighter md:text-5xl">Explore Our Menu</h2>
@@ -88,6 +242,34 @@ const Menu = () => {
             </div>
           </div>
         </div>
+
+        {/* CTA Section */}
+        <section className="py-20 bg-gradient-to-r from-primary to-secondary">
+          <div className="container mx-auto px-6">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-3xl md:text-4xl font-bold text-text-dark mb-6">
+                Ready to Indulge Your Taste Buds?
+              </h2>
+              <p className="text-xl text-text-dark/90 mb-10 max-w-2xl mx-auto">
+                Visit our store today and experience our handcrafted beverages made with premium ingredients and passion.
+              </p>
+              <div className="flex flex-col sm:flex-row justify-center gap-6">
+                <Link 
+                  to="/contact" 
+                  className="inline-flex items-center justify-center px-8 py-4 bg-text-dark text-primary font-bold rounded-full shadow-lg hover:bg-text-dark/90 transition-all duration-300 transform hover:scale-105"
+                >
+                  Find Our Locations
+                </Link>
+                <Link 
+                  to="/gallery" 
+                  className="inline-flex items-center justify-center px-8 py-4 bg-text-dark/20 text-text-dark font-bold rounded-full shadow-lg hover:bg-text-dark/30 transition-all duration-300"
+                >
+                  View Full Menu
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
 
       {/* Footer */}
