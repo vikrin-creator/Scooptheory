@@ -16,6 +16,20 @@ const Menu = () => {
           </div>
           
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+            {/* Signature Milkshakes Card */}
+            <div className="flex flex-col rounded-xl shadow-soft dark:shadow-soft-dark bg-card-light dark:bg-card-dark overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+              <div 
+                className="h-48 w-full bg-cover bg-center" 
+                style={{ backgroundImage: 'url(/images/milkshakes.jpg)' }}
+                alt="Three colorful milkshakes with whipped cream and toppings lined up."
+              ></div>
+              <div className="flex flex-grow flex-col items-stretch justify-start p-6">
+                <h3 className="text-2xl font-bold leading-tight tracking-tight text-text-primary dark:text-text-dark">Signature Milkshakes</h3>
+                <p className="mt-3 text-sm font-normal text-text-primary/80 dark:text-text-dark/80">
+                  Salted Caramel Pretzels, Dubai Chocolate, Chocolate Raspberry, Nutella, Midnight Cookies and Cream, Peanut Butter.
+                </p>
+              </div>
+            </div>
             {/* Matcha & Hot Drinks Card */}
             <div className="flex flex-col rounded-xl shadow-soft dark:shadow-soft-dark bg-card-light dark:bg-card-dark overflow-hidden transition-transform duration-300 hover:-translate-y-2">
               <div 
@@ -31,20 +45,7 @@ const Menu = () => {
               </div>
             </div>
 
-            {/* Signature Milkshakes Card */}
-            <div className="flex flex-col rounded-xl shadow-soft dark:shadow-soft-dark bg-card-light dark:bg-card-dark overflow-hidden transition-transform duration-300 hover:-translate-y-2">
-              <div 
-                className="h-48 w-full bg-cover bg-center" 
-                style={{ backgroundImage: 'url(/images/milkshakes.jpg)' }}
-                alt="Three colorful milkshakes with whipped cream and toppings lined up."
-              ></div>
-              <div className="flex flex-grow flex-col items-stretch justify-start p-6">
-                <h3 className="text-2xl font-bold leading-tight tracking-tight text-text-primary dark:text-text-dark">Signature Milkshakes</h3>
-                <p className="mt-3 text-sm font-normal text-text-primary/80 dark:text-text-dark/80">
-                  Salted Caramel Pretzels, Dubai Chocolate, Chocolate Raspberry, Nutella, Midnight Cookies and Cream, Peanut Butter.
-                </p>
-              </div>
-            </div>
+            
 
             {/* Classic Tea Card */}
             <div className="flex flex-col rounded-xl shadow-soft dark:shadow-soft-dark bg-card-light dark:bg-card-dark overflow-hidden transition-transform duration-300 hover:-translate-y-2">
@@ -154,7 +155,7 @@ const Menu = () => {
                   Salt Infused Ice Cream Layered with Swirls of Caramel & Vanilla Cookies
                 </p>
                 <span className="inline-block px-3 py-1 bg-secondary/30 text-text-dark dark:text-text-light text-sm rounded-full">
-                  Egg and Gluten Free
+                  Egg Free
                 </span>
               </div>
 

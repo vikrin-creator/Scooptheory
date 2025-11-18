@@ -34,7 +34,7 @@ const Contact = () => {
                   <span className="material-symbols-outlined text-secondary mt-1">location_on</span>
                   <div>
                     <p className="font-bold text-sm text-text-strong/70 dark:text-text-dark/70">Address</p>
-                    <p className="text-base font-medium">123 Sweet Street, Dessertville, CA 90210</p>
+                    <p className="text-base font-medium">129 S Livingston Ave, Livingston NJ  - 07039</p>
                   </div>
                 </div>
                 
@@ -42,7 +42,7 @@ const Contact = () => {
                   <span className="material-symbols-outlined text-secondary mt-1">call</span>
                   <div>
                     <p className="font-bold text-sm text-text-strong/70 dark:text-text-dark/70">Phone Number</p>
-                    <p className="text-base font-medium">(555) 123-4567</p>
+                    <p className="text-base font-medium">(201) 687-1228</p>
                   </div>
                 </div>
                 
@@ -50,7 +50,7 @@ const Contact = () => {
                   <span className="material-symbols-outlined text-secondary mt-1">schedule</span>
                   <div>
                     <p className="font-bold text-sm text-text-strong/70 dark:text-text-dark/70">Opening Hours</p>
-                    <p className="text-base font-medium">Mon - Sun: 11:00 AM - 10:00 PM</p>
+                    <p className="text-base font-medium">Mon - Sun : 2PM</p>
                   </div>
                 </div>
                 
@@ -58,7 +58,7 @@ const Contact = () => {
                   <span className="material-symbols-outlined text-secondary mt-1">mail</span>
                   <div>
                     <p className="font-bold text-sm text-text-strong/70 dark:text-text-dark/70">Email Address</p>
-                    <p className="text-base font-medium">hello@scooptheory.com</p>
+                    <p className="text-base font-medium">scooptheoryinfo@gmail.com</p>
                   </div>
                 </div>
               </div>
