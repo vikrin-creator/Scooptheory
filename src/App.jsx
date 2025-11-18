@@ -17,14 +17,13 @@ function App() {
           <div className="flex items-center justify-between whitespace-nowrap px-4 sm:px-10 py-3 max-w-6xl w-full">
             <div className="flex items-center gap-2">
               <Link to="/" className="flex items-center gap-2 text-text-primary dark:text-text-dark">
-                <img src="/logo.png" alt="Scoop Theory" className="h-8 w-8 rounded-full object-cover" />
-                <h2 className="text-text-primary dark:text-text-dark text-xl font-bold leading-tight tracking-tight">Scoop Theory</h2>
+                <img src="/logo.png" alt="Scoop Theory" className="h-12 object-cover" />
               </Link>
             </div>
             
             <nav className="hidden md:flex flex-1 justify-center gap-8">
               <Link to="/" className="text-text-primary dark:text-text-dark text-sm font-medium leading-normal hover:text-primary transition-colors">Home</Link>
-              <Link to="/about" className="text-primary dark:text-primary text-sm font-bold leading-normal">Our Story</Link>
+              <Link to="/about" className="text-text-primary dark:text-text-dark text-sm font-medium leading-normal hover:text-primary transition-colors">Our Story</Link>
               <Link to="/menu" className="text-text-primary dark:text-text-dark text-sm font-medium leading-normal hover:text-primary transition-colors">Menu</Link>
               <Link to="/gallery" className="text-text-primary dark:text-text-dark text-sm font-medium leading-normal hover:text-primary transition-colors">Products</Link>
               <Link to="/contact" className="text-text-primary dark:text-text-dark text-sm font-medium leading-normal hover:text-primary transition-colors">Contact</Link>
@@ -110,30 +109,28 @@ function App() {
                     <img 
                       className="h-full w-full object-cover" 
                       alt="A delightful scene of pastel-colored ice cream scoops with various toppings" 
-                      src="/images/hero_bg.jpg"
+                      src="/images/hero_bg.png"
                     />
                     <div className="absolute inset-0 bg-background-light/30 dark:bg-background-dark/50"></div>
                   </div>
                   
-                  <div className="relative z-10 flex flex-col items-center justify-center text-center p-4">
-                    <h1 className="text-text-dark dark:text-text-light text-5xl md:text-7xl font-black tracking-tighter leading-tight drop-shadow-md mb-4">
-                      Scoop Theory
-                    </h1>
-                    <h2 className="text-text-dark dark:text-text-light text-lg md:text-xl font-normal leading-normal drop-shadow-sm">
-                      Where Every Scoop Tells a Story.
-                    </h2>
-                    <Link 
-                      to="/gallery"
-                      className="mt-8 flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-8 bg-primary text-text-dark text-base font-bold shadow-soft transition-transform hover:scale-105"
-                    >
-                      <span className="truncate">Explore Our Flavors</span>
-                    </Link>
+                  <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="flex items-center justify-start">
+                      <div className="max-w-lg text-left">
+                        <h1 className="text-white text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-tight drop-shadow-2xl mb-6" style={{textShadow: '2px 2px 8px rgba(0,0,0,0.8)'}}>
+                          IT'S SCOOP TIME
+                        </h1>
+                        <p className="text-white text-lg md:text-xl leading-relaxed drop-shadow-xl" style={{textShadow: '1px 1px 4px rgba(0,0,0,0.7)'}}>
+                          Handcrafted, irresistibly creamy, and full of flavors. Grab a scoop and taste the magic in every bite. Scoop in and let the good vibe begin.
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
                 {/* New Section - Image Left, Content Right */}
                 <section className="py-20 bg-background-light dark:bg-background-dark">
-                  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                  <div className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
                     <div className="flex flex-col lg:flex-row items-center gap-12">
                       {/* Image on the Left */}
                       <div className="lg:w-1/2 w-full">
@@ -202,7 +199,7 @@ function App() {
 
                 {/* Alternate Section - Image Right, Content Left */}
                 <section className="py-20 bg-secondary/10 dark:bg-background-dark">
-                  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                  <div className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
                     <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
                       {/* Image on the Right */}
                       <div className="lg:w-1/2 w-full">

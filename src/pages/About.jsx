@@ -49,7 +49,7 @@ const About = () => {
   return (
     <div className="min-h-screen bg-background-light dark:bg-background-dark">
       {/* Hero Section */}
-      <section className="w-full py-12 md:py-20">
+      <section className="w-full py-12 md:py-20 px-8 sm:px-12 lg:px-16">
         <div className="relative flex min-h-[480px] flex-col gap-6 rounded-xl bg-cover bg-center bg-no-repeat items-center justify-center p-8 text-center shadow-lg" 
              style={{
                backgroundImage: 'linear-gradient(rgba(74, 46, 42, 0.3) 0%, rgba(74, 46, 42, 0.5) 100%), url("/images/about_hero_bg.jpg")',
@@ -67,48 +67,69 @@ const About = () => {
         </div>
       </section>
 
-      {/* Philosophy Section */}
-      <section className="py-12 md:py-20 px-4 max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
-          <div className="w-full h-80 md:h-[500px] rounded-xl overflow-hidden shadow-lg">
-            <ImageWithFallback 
-              src="/images/ice_cream_cone.jpg" 
-              alt="Ice cream cone"
-              className="w-full h-full object-cover"
-              fallbackText="Ice cream cone coming soon!"
-            />
-          </div>
-          <div className="flex flex-col gap-4">
-            <h2 className="text-text-primary dark:text-text-dark text-3xl font-bold tracking-tight">Our Philosophy</h2>
-            <p className="text-text-primary/80 dark:text-text-dark/80 text-base leading-relaxed">
-              It all started with a simple idea: to create a space where joy is served by the spoonful. At Scoop Theory, we're obsessed with quality. We believe the best treats come from the best ingredients. That's why we partner with local dairy farms, source authentic matcha from Uji, and brew the most fragrant teas for our signature milkshakes and boba. Our creative process is fueled by a love for unique flavor combinations and a commitment to making every visit a memorable one.
+      {/* Our Journey Section */}
+      <section className="py-12 md:py-20 px-8 sm:px-12 lg:px-16 bg-background-light dark:bg-background-dark">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-text-primary dark:text-text-dark text-3xl md:text-4xl font-bold tracking-tight mb-4">
+              Our Journey
+            </h2>
+            <p className="text-[#F7A4A4] text-lg font-semibold">
+              From a simple question to a cherished family tradition.
             </p>
           </div>
-        </div>
-      </section>
 
-      {/* Vibe Section */}
-      <section className="py-12 md:py-20 px-4 max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
-          <div className="flex flex-col gap-4 md:order-2">
-            <h2 className="text-text-primary dark:text-text-dark text-3xl font-bold tracking-tight">The Vibe</h2>
-            <p className="text-text-primary/80 dark:text-text-dark/80 text-base leading-relaxed">
-              Step into our world of pastel dreams and creamy delights. We designed Scoop Theory to be more than just an ice cream shop—it's a destination. A cozy, fun, and picture-perfect spot where friends gather, families make memories, and everyone feels welcome. With soft lighting, comfy seating, and just the right amount of whimsy, our cafe is your perfect escape for a sweet treat and a great time.
-            </p>
-          </div>
-          <div className="w-full h-80 md:h-[500px] rounded-xl overflow-hidden shadow-lg md:order-1">
-            <ImageWithFallback 
-              src="/images/cafe_interior.jpg" 
-              alt="Cafe interior"
-              className="w-full h-full object-cover"
-              fallbackText="Our cozy cafe interior"
-            />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div className="space-y-6">
+              <p className="text-text-primary/80 dark:text-text-dark/80 text-base leading-relaxed">
+                Our journey began in 2024 during a family drive when our son posed a simple yet profound question: <span className="font-semibold">"Can we open an ice cream place?"</span> That innocent inquiry sparked a dream that would soon blossom into a beloved family enterprise.
+              </p>
+              <p className="text-text-primary/80 dark:text-text-dark/80 text-base leading-relaxed">
+                Today, Scoop Theory stands as a testament to family dedication, where each artisan scoop is crafted with meticulous care. We continuously push the boundaries of flavor innovation while cherishing the connections we forge with our valued guests.
+              </p>
+              <p className="text-text-primary/80 dark:text-text-dark/80 text-base leading-relaxed">
+                Beyond being a business, Scoop Theory represents our family's heartfelt invitation to share joy. We are committed to sourcing premium ingredients, offering generous portions, and creating memorable flavors that evoke happiness and cherished memories with every delightful bite.
+              </p>
+
+              {/* Stats Cards */}
+              <div className="grid grid-cols-2 gap-6 pt-6">
+                <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg text-center">
+                  <div className="text-[#F7A4A4] text-4xl md:text-5xl font-bold mb-2">2024</div>
+                  <div className="text-text-primary/70 dark:text-text-dark/70 text-sm">Doors opened</div>
+                </div>
+                <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg text-center">
+                  <div className="text-[#F7A4A4] text-4xl md:text-5xl font-bold mb-2">10k+</div>
+                  <div className="text-text-primary/70 dark:text-text-dark/70 text-sm">Families served</div>
+                </div>
+              </div>
+
+              {/* Quote Box */}
+              <div className="bg-secondary/10 dark:bg-gray-800/50 rounded-xl p-6 border-l-4 border-primary">
+                <p className="text-text-primary/90 dark:text-text-dark/90 italic text-base mb-2">
+                  "Can we open an ice cream place?"
+                </p>
+                <p className="text-text-primary/60 dark:text-text-dark/60 text-sm">
+                  — The question that ignited our family's sweetest adventure.
+                </p>
+              </div>
+            </div>
+
+            {/* Right Image */}
+            <div className="w-full h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+              <ImageWithFallback 
+                src="/images/OurJourney.jpg" 
+                alt="Family enjoying ice cream together"
+                className="w-full h-full object-cover"
+                fallbackText="Our family story"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Gallery Section */}
-      <section className="py-12 md:py-20 px-4 max-w-6xl mx-auto">
+      <section className="py-12 md:py-20 px-8 sm:px-12 lg:px-16">
         <div className="text-center mb-10">
           <h2 className="text-text-primary dark:text-text-dark text-3xl font-bold tracking-tight">A Glimpse Into Our World</h2>
         </div>
