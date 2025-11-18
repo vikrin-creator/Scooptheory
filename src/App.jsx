@@ -60,7 +60,7 @@ function App() {
                 </Link>
                 <Link 
                   to="/about" 
-                  className="text-primary dark:text-primary text-base font-bold py-2 px-4 bg-primary/10 rounded-lg"
+                  className="text-text-primary dark:text-text-dark text-base font-medium py-2 px-4 hover:bg-primary/10 rounded-lg"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Our Story
@@ -104,7 +104,7 @@ function App() {
             <Route path="/" element={
               <div className="w-full">
                 {/* Hero Section */}
-                <div className="relative h-screen w-full flex items-center justify-center overflow-hidden">
+                <div className="relative h-[70vh] md:h-screen w-full flex items-center overflow-hidden">
                   <div className="absolute inset-0 z-0">
                     <img 
                       className="h-full w-full object-cover" 
@@ -114,15 +114,22 @@ function App() {
                     <div className="absolute inset-0 bg-background-light/30 dark:bg-background-dark/50"></div>
                   </div>
                   
-                  <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex items-center justify-start">
-                      <div className="max-w-lg text-left">
-                        <h1 className="text-white text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-tight drop-shadow-2xl mb-6" style={{textShadow: '2px 2px 8px rgba(0,0,0,0.8)'}}>
-                          IT'S SCOOP TIME
+                  <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 -mt-20">
+                    <div className="flex items-center">
+                      <div className="max-w-lg text-left ml-4 sm:ml-8 md:ml-0">
+                        <h1 className="text-white text-5xl md:text-6xl lg:text-7xl font-black leading-tight drop-shadow-2xl mb-6" style={{textShadow: '2px 2px 8px rgba(0,0,0,0.8)'}}>
+                          IT'S SCOOP<br className="md:hidden" /> TIME
                         </h1>
-                        <p className="text-white text-lg md:text-xl leading-relaxed drop-shadow-xl" style={{textShadow: '1px 1px 4px rgba(0,0,0,0.7)'}}>
+                        <p className="text-white text-lg md:text-xl leading-relaxed drop-shadow-xl mb-8" style={{textShadow: '1px 1px 4px rgba(0,0,0,0.7)'}}>
                           Handcrafted, irresistibly creamy, and full of flavors. Grab a scoop and taste the magic in every bite. Scoop in and let the good vibe begin.
                         </p>
+                        <Link 
+                          to="/menu"
+                          className="inline-flex items-center px-8 py-4 bg-primary text-text-primary text-base font-bold rounded-full shadow-lg hover:opacity-90 transition-opacity"
+                        >
+                          Explore Our Flavors
+                          <span className="ml-2 material-symbols-outlined">arrow_forward</span>
+                        </Link>
                       </div>
                     </div>
                   </div>
