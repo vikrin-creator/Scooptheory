@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://scoop-theory.com/sitemap.xml
+
+# Block crawlers from admin/private areas (if any exist in future)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.pdf$
+
+# Allow all search engine bots to crawl the site
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Crawl delay for better server performance
+Crawl-delay: 1

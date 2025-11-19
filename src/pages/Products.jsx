@@ -1,4 +1,6 @@
 import React from 'react';
+import SEOHead from '../components/SEOHead';
+import { seoData } from '../data/seoData';
 
 const Products = () => {
   const products = [
@@ -54,6 +56,7 @@ const Products = () => {
 
   return (
     <div className="min-h-screen">
+      <SEOHead {...seoData.products} />
       {/* Hero Section */}
       <div className="text-center py-16">
         <h1 className="text-text-primary dark:text-text-light text-4xl md:text-6xl font-black leading-tight tracking-tighter">

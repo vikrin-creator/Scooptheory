@@ -1,8 +1,11 @@
 import React from 'react';
+import SEOHead from '../components/SEOHead';
+import { seoData } from '../data/seoData';
 
 const Contact = () => {
   return (
     <div className="min-h-screen bg-background-light dark:bg-background-dark">
+      <SEOHead {...seoData.contact} />
       <main className="container mx-auto px-4 py-12 md:py-20">
         {/* Page Heading */}
         <div className="text-center mb-12">

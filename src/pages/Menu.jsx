@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SEOHead from '../components/SEOHead';
+import { seoData } from '../data/seoData';
 
 const Menu = () => {
   return (
     <div className="min-h-screen bg-background-light dark:bg-background-dark">
+      <SEOHead {...seoData.menu} />
       {/* Main Content */}
       <main className="flex-grow">
         {/* Existing Menu Categories */}

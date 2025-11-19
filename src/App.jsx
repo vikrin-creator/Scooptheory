@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import About from './pages/About';
 import Menu from './pages/Menu';
 import Products from './pages/Products';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
+import SEOHead from './components/SEOHead';
+import { seoData } from './data/seoData';
 
 // ScrollToTop component to handle automatic scrolling on route changes
 function ScrollToTop() {
@@ -21,8 +24,9 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <Router>
-      <ScrollToTop />
+    <HelmetProvider>
+      <Router>
+        <ScrollToTop />
       <div className="relative min-h-screen w-full flex flex-col font-display bg-background-light dark:bg-background-dark">
         {/* TopNavBar */}
         <header className="sticky top-0 z-50 flex w-full justify-center bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm shadow-sm">
@@ -115,6 +119,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/" element={
               <div className="w-full">
+                <SEOHead {...seoData.home} />
                 {/* Hero Section */}
                 <div className="relative h-[70vh] md:h-screen w-full flex items-center overflow-hidden">
                   <div className="absolute inset-0 z-0">
@@ -406,6 +411,7 @@ function App() {
         </button>
       </div>
     </Router>
+    </HelmetProvider>
   );
 }
 

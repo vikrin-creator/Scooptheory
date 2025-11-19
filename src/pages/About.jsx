@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import SEOHead from '../components/SEOHead';
+import { seoData } from '../data/seoData';
 
 // Utility function to check if image exists
 const useImageExists = (url) => {
@@ -48,6 +50,7 @@ const ImageWithFallback = ({ src, alt, className, fallbackText }) => {
 const About = () => {
   return (
     <div className="min-h-screen bg-background-light dark:bg-background-dark">
+      <SEOHead {...seoData.about} />
       {/* Hero Section */}
       <section className="w-full py-12 md:py-20 px-8 sm:px-12 lg:px-16">
         <div className="relative flex min-h-[480px] flex-col gap-6 rounded-xl bg-cover bg-center bg-no-repeat items-center justify-center p-8 text-center shadow-lg" 
