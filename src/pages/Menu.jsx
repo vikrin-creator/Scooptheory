@@ -47,7 +47,7 @@ const Menu = () => {
 
             
 
-            {/* Classic Tea Card */}
+            {/* Theory Refreshers Card */}
             <div className="flex flex-col rounded-xl shadow-soft dark:shadow-soft-dark bg-card-light dark:bg-card-dark overflow-hidden transition-transform duration-300 hover:-translate-y-2">
               <div 
                 className="h-48 w-full bg-cover bg-center" 
@@ -55,9 +55,9 @@ const Menu = () => {
                 alt="A glass of iced milk tea with boba pearls, condensation on the glass."
               ></div>
               <div className="flex flex-grow flex-col items-stretch justify-start p-6">
-                <h3 className="text-2xl font-bold leading-tight tracking-tight text-text-primary dark:text-text-dark">Classic Tea</h3>
+                <h3 className="text-2xl font-bold leading-tight tracking-tight text-text-primary dark:text-text-dark">Theory Refreshers</h3>
                 <p className="mt-3 text-sm font-normal text-text-primary/80 dark:text-text-dark/80">
-                  Black Milk Tea, Jasmine Milk Green Tea, Taro Milk Tea, Coconut Milk Tea, Strawberries & Cream, Brown Sugar Milk Tea, Thai Milk Tea, Brown Sugar Latte.
+                  Tropican Fizz, Indigo Fizz, Sunset Dragon, Guava Fizz, Rasberry Wave, Pink Lychee Fizz, Mango Wave, Citrus Tea, Ocean Bliss, Passion Raz.
                 </p>
               </div>
             </div>

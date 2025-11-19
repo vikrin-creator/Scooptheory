@@ -83,19 +83,21 @@ const About = () => {
             {/* Left Content */}
             <div className="space-y-6">
               <p className="text-text-primary/80 dark:text-text-dark/80 text-base leading-relaxed">
-                Our journey began in 2024 during a family drive when our son posed a simple yet profound question: <span className="font-semibold">"Can we open an ice cream place?"</span> That innocent inquiry sparked a dream that would soon blossom into a beloved family enterprise.
+                Our journey began in 2025 during a family drive when our son posed a simple yet profound question: <span className="font-semibold">"Can we open an ice cream place?"</span> That innocent inquiry sparked a dream that would soon blossom into a beloved family enterprise.
               </p>
               <p className="text-text-primary/80 dark:text-text-dark/80 text-base leading-relaxed">
                 Today, Scoop Theory stands as a testament to family dedication, where each artisan scoop is crafted with meticulous care. We continuously push the boundaries of flavor innovation while cherishing the connections we forge with our valued guests.
               </p>
               <p className="text-text-primary/80 dark:text-text-dark/80 text-base leading-relaxed">
                 Beyond being a business, Scoop Theory represents our family's heartfelt invitation to share joy. We are committed to sourcing premium ingredients, offering generous portions, and creating memorable flavors that evoke happiness and cherished memories with every delightful bite.
+
+                <span className="font-bold"> I am very thankful to my friend Tim who helped me in this journey.</span>
               </p>
 
               {/* Stats Cards */}
               <div className="grid grid-cols-2 gap-6 pt-6">
                 <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg text-center">
-                  <div className="text-[#F7A4A4] text-4xl md:text-5xl font-bold mb-2">2024</div>
+                  <div className="text-[#F7A4A4] text-4xl md:text-5xl font-bold mb-2">2025</div>
                   <div className="text-text-primary/70 dark:text-text-dark/70 text-sm">Doors opened</div>
                 </div>
                 <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg text-center">

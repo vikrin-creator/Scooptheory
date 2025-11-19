@@ -61,7 +61,7 @@ const Contact = () => {
                   <span className="material-symbols-outlined text-secondary mt-1">mail</span>
                   <div>
                     <p className="font-bold text-sm text-text-strong/70 dark:text-text-dark/70">Email Address</p>
-                    <p className="text-base font-medium">scooptheoryinfo@gmail.com</p>
+                    <p className="text-base font-medium">info@scoop-theory.com</p>
                   </div>
                 </div>
               </div>
