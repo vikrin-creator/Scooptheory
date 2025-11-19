@@ -7,8 +7,8 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
     <url>
         <loc>https://scoop-theory.com/</loc>
-        <lastmod>2025-11-20</lastmod>
-        <changefreq>weekly</changefreq>
+        <lastmod>2025-11-20T12:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
