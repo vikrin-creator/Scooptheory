@@ -18,9 +18,12 @@ const Contact = () => {
           {/* Left Column: Map & Details */}
           <div className="flex flex-col gap-8">
             {/* Map */}
-            <div 
-              className="w-full h-96 bg-center bg-no-repeat bg-cover rounded-xl object-cover shadow-soft" 
-              aria-label="Interactive map showing the location of Scoop Theory cafe" 
+            <a 
+              href="https://www.google.com/maps?q=Scoop+Theory,+129+S+Livingston+Ave,+Livingston,+NJ+07039,+United+States"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full h-96 bg-center bg-no-repeat bg-cover rounded-xl object-cover shadow-soft hover:opacity-90 transition-opacity cursor-pointer"
+              aria-label="Open Google Maps for Scoop Theory: 129 S Livingston Ave, Livingston, NJ 07039, United States"
               style={{ backgroundImage: 'url(/images/map_placeholder.jpg)' }}
             />
             

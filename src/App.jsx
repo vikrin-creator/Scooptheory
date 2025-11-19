@@ -364,18 +364,14 @@ function App() {
                     
                     {/* Stats Section */}
                     <div className="mt-20 bg-primary/10 dark:bg-secondary/20 rounded-3xl p-8 md:p-12">
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                         <div className="group">
-                          <div className="text-4xl md:text-5xl font-bold text-text-dark dark:text-text-light mb-2 group-hover:text-primary transition-colors">50+</div>
+                          <div className="text-4xl md:text-5xl font-bold text-text-dark dark:text-text-light mb-2 group-hover:text-primary transition-colors">30+</div>
                           <div className="text-text-dark/80 dark:text-text-light/80">Unique Flavors</div>
                         </div>
                         <div className="group">
                           <div className="text-4xl md:text-5xl font-bold text-text-dark dark:text-text-light mb-2 group-hover:text-primary transition-colors">100%</div>
                           <div className="text-text-dark/80 dark:text-text-light/80">Natural Ingredients</div>
-                        </div>
-                        <div className="group">
-                          <div className="text-4xl md:text-5xl font-bold text-text-dark dark:text-text-light mb-2 group-hover:text-primary transition-colors">12</div>
-                          <div className="text-text-dark/80 dark:text-text-light/80">Years Experience</div>
                         </div>
                         <div className="group">
                           <div className="text-4xl md:text-5xl font-bold text-text-dark dark:text-text-light mb-2 group-hover:text-primary transition-colors">5K+</div>
