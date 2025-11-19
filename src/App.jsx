@@ -1,16 +1,28 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import About from './pages/About';
 import Menu from './pages/Menu';
 import Products from './pages/Products';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
 
+// ScrollToTop component to handle automatic scrolling on route changes
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <Router>
+      <ScrollToTop />
       <div className="relative min-h-screen w-full flex flex-col font-display bg-background-light dark:bg-background-dark">
         {/* TopNavBar */}
         <header className="sticky top-0 z-50 flex w-full justify-center bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm shadow-sm">
