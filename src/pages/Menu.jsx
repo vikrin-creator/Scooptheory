@@ -295,6 +295,95 @@ const Menu = () => {
                   Egg free
                 </span>
               </div>
+                {/*Black Sesame*/}
+              <div className="bg-background-light dark:bg-gray-800 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 p-6">
+                <h3 className="text-2xl font-bold text-text-dark dark:text-text-light mb-4">Black Sesame</h3>
+                <p className="text-text-dark/70 dark:text-text-light/70 mb-4 leading-relaxed">
+                 Roasted Black Sesame Infused Ice Cream
+                </p>
+                <span className="inline-block px-3 py-1 bg-secondary/30 text-text-dark dark:text-text-light text-sm rounded-full">
+                  Egg and Gluten free
+                </span>
+              </div>
+
+              {/*Vegan Coconut Choco*/}
+              <div className="bg-background-light dark:bg-gray-800 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 p-6">
+                <h3 className="text-2xl font-bold text-text-dark dark:text-text-light mb-4">Vegan Coconut Choco</h3>
+                <p className="text-text-dark/70 dark:text-text-light/70 mb-4 leading-relaxed">
+                Dairy-Free Ice Cream Made with Plant-Based Milk and Infused with real Cocoa And Coconut Flakes
+                </p>
+                <span className="inline-block px-3 py-1 bg-secondary/30 text-text-dark dark:text-text-light text-sm rounded-full">
+                  Egg and Gluten free
+                </span>
+              </div>
+
+
+              {/*Peanut Butter Cup*/}
+              <div className="bg-background-light dark:bg-gray-800 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 p-6">
+                <h3 className="text-2xl font-bold text-text-dark dark:text-text-light mb-4">Peanut Butter Cup</h3>
+                <p className="text-text-dark/70 dark:text-text-light/70 mb-4 leading-relaxed">
+                Peanut Infused Ice Cream Layered with Peanut Butter & Homemade Chocolate Shell
+                </p>
+                <span className="inline-block px-3 py-1 bg-secondary/30 text-text-dark dark:text-text-light text-sm rounded-full">
+                  Egg free
+                </span>
+              </div>
+
+              {/*Sugar Free Vanilla*/}
+              <div className="bg-background-light dark:bg-gray-800 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 p-6">
+                <h3 className="text-2xl font-bold text-text-dark dark:text-text-light mb-4">Sugar Free Vanilla</h3>
+                <p className="text-text-dark/70 dark:text-text-light/70 mb-4 leading-relaxed">
+                Sugar-free Pure Bourbon Vanilla Ice Cream  
+                </p>
+                <span className="inline-block px-3 py-1 bg-secondary/30 text-text-dark dark:text-text-light text-sm rounded-full">
+                
+                </span>
+              </div>
+
+              {/*Raspberry Donut*/}
+              <div className="bg-background-light dark:bg-gray-800 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 p-6">
+                <h3 className="text-2xl font-bold text-text-dark dark:text-text-light mb-4">Rasberry Donut</h3>
+                <p className="text-text-dark/70 dark:text-text-light/70 mb-4 leading-relaxed">
+                Powered Raspberry Filled Donuts Layered into Powered Sugar Vanilla Ice Cream 
+                </p>
+                <span className="inline-block px-3 py-1 bg-secondary/30 text-text-dark dark:text-text-light text-sm rounded-full">
+                 
+                </span>
+              </div>
+
+
+               {/*Fruit Blossom*/}
+              <div className="bg-background-light dark:bg-gray-800 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 p-6">
+                <h3 className="text-2xl font-bold text-text-dark dark:text-text-light mb-4">Fruit Blossom</h3>
+                <p className="text-text-dark/70 dark:text-text-light/70 mb-4 leading-relaxed">
+                  Traditional Hawaiian (Passion fruite, Orange Guava)
+                </p>
+                <span className="inline-block px-3 py-1 bg-secondary/30 text-text-dark dark:text-text-light text-sm rounded-full">
+                 Egg & Gluten free
+                </span>
+              </div>
+
+              {/*Gooey Caramel Cake*/}
+              <div className="bg-background-light dark:bg-gray-800 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 p-6">
+                <h3 className="text-2xl font-bold text-text-dark dark:text-text-light mb-4">Gooey Caramel Cake</h3>
+                <p className="text-text-dark/70 dark:text-text-light/70 mb-4 leading-relaxed">
+                  Cream cheese Infused Ice Cream layered with Crumbles of Gooey Butter cake and swirls of caramel
+                </p>
+                <span className="inline-block px-3 py-1 bg-secondary/30 text-text-dark dark:text-text-light text-sm rounded-full">
+                
+                </span>
+              </div>
+
+              {/*Dubai Chocolate*/}
+              <div className="bg-background-light dark:bg-gray-800 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 p-6">
+                <h3 className="text-2xl font-bold text-text-dark dark:text-text-light mb-4">Gooey Caramel Cake</h3>
+                <p className="text-text-dark/70 dark:text-text-light/70 mb-4 leading-relaxed">
+                 Pistachio Infused Ice Cream Layered with Pistachio Butter, Kunafa and layers of Homemade Chocolate
+                </p>
+                <span className="inline-block px-3 py-1 bg-secondary/30 text-text-dark dark:text-text-light text-sm rounded-full">
+                
+                </span>
+              </div>
 
 
               {/* Upside Down Pineapple */}

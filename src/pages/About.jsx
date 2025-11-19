@@ -83,7 +83,7 @@ const About = () => {
             {/* Left Content */}
             <div className="space-y-6">
               <p className="text-text-primary/80 dark:text-text-dark/80 text-base leading-relaxed">
-                Our journey began in 2025 during a family drive when our son posed a simple yet profound question: <span className="font-semibold">"Can we open an ice cream place?"</span> That innocent inquiry sparked a dream that would soon blossom into a beloved family enterprise.
+                Our journey began in 2024 during a family drive when our son posed a simple yet profound question: <span className="font-semibold">"Can we open an ice cream place?"</span> That innocent inquiry sparked a dream that would soon blossom into a beloved family enterprise.
               </p>
               <p className="text-text-primary/80 dark:text-text-dark/80 text-base leading-relaxed">
                 Today, Scoop Theory stands as a testament to family dedication, where each artisan scoop is crafted with meticulous care. We continuously push the boundaries of flavor innovation while cherishing the connections we forge with our valued guests.
