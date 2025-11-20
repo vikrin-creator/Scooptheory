@@ -63,7 +63,7 @@ const Products = () => {
           Taste the Bliss
         </h1>
         <h2 className="mt-4 text-text-primary/80 dark:text-text-light/80 text-lg md:text-xl font-normal max-w-2xl mx-auto">
-          Discover our delightful range of handcrafted ice creams, specialty matcha, milk teas, and signature milkshakes.
+          Discover our delightful range of handcrafted ice creams, signature milkshakes, specialty matcha, and refreshers
         </h2>
       </div>
 
