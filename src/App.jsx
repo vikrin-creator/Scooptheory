@@ -295,7 +295,7 @@ function App() {
                         </div>
                         <div className="group">
                           <div className="text-4xl md:text-5xl font-bold text-text-dark dark:text-text-light mb-2 group-hover:text-primary transition-colors">100%</div>
-                          <div className="text-text-dark/80 dark:text-text-light/80">Natural Ingredients</div>
+                          <div className="text-text-dark/80 dark:text-text-light/80">Family-Run or Handcrafted In-Store</div>
                         </div>
                         <div className="group">
                           <div className="text-4xl md:text-5xl font-bold text-text-dark dark:text-text-light mb-2 group-hover:text-primary transition-colors">5K+</div>
