@@ -157,7 +157,7 @@ const About = () => {
           </div>
           <div className="w-full aspect-square rounded-xl overflow-hidden shadow-lg">
             <ImageWithFallback 
-              src="/images/gallery_boba.jpg" 
+              src="/images/gallery_boba.png" 
               alt="Bubble tea"
               className="w-full h-full object-cover"
               fallbackText="Bubble tea special"

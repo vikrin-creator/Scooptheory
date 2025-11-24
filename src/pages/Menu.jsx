@@ -18,7 +18,7 @@ const Menu = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
             {/* Signature Milkshakes Card */}
             <div className="flex flex-col rounded-xl shadow-soft dark:shadow-soft-dark bg-card-light dark:bg-card-dark overflow-hidden transition-transform duration-300 hover:-translate-y-2">
               <div 
@@ -27,7 +27,9 @@ const Menu = () => {
                 alt="Three colorful milkshakes with whipped cream and toppings lined up."
               ></div>
               <div className="flex flex-grow flex-col items-stretch justify-start p-6">
-                <h3 className="text-2xl font-bold leading-tight tracking-tight text-text-primary dark:text-text-dark">Signature Milkshakes</h3>
+                <a href="https://www.clover.com/online-ordering/scooptheory" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                  <h3 className="text-2xl font-bold leading-tight tracking-tight text-text-primary dark:text-text-dark">Signature Milkshakes</h3>
+                </a>
                 <p className="mt-3 text-sm font-normal text-text-primary/80 dark:text-text-dark/80">
                   Salted Caramel Pretzels, Dubai Chocolate, Chocolate Raspberry, Nutella, Midnight Cookies and Cream, Peanut Butter.
                 </p>
@@ -41,7 +43,9 @@ const Menu = () => {
                 alt="A vibrant green matcha latte in a ceramic cup, viewed from above."
               ></div>
               <div className="flex flex-grow flex-col items-stretch justify-start p-6">
-                <h3 className="text-2xl font-bold leading-tight tracking-tight text-text-primary dark:text-text-dark">Matcha & Hot Drinks</h3>
+                <a href="https://www.clover.com/online-ordering/scooptheory" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                  <h3 className="text-2xl font-bold leading-tight tracking-tight text-text-primary dark:text-text-dark">Matcha & Hot Drinks</h3>
+                </a>
                 <p className="mt-3 text-sm font-normal text-text-primary/80 dark:text-text-dark/80">
                   Expresso Coffee, Hot Chocolate, Expresso Latte, Taro Latte, UBE Matcha, Mango Matcha, Strawberry Matcha Latte, Biscoff Matcha.
                 </p>
@@ -58,15 +62,36 @@ const Menu = () => {
                 alt="A glass of iced milk tea with boba pearls, condensation on the glass."
               ></div>
               <div className="flex flex-grow flex-col items-stretch justify-start p-6">
-                <h3 className="text-2xl font-bold leading-tight tracking-tight text-text-primary dark:text-text-dark">Theory Refreshers</h3>
+                <a href="https://www.clover.com/online-ordering/scooptheory" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                  <h3 className="text-2xl font-bold leading-tight tracking-tight text-text-primary dark:text-text-dark">Theory Refreshers</h3>
+                </a>
                 <p className="mt-3 text-sm font-normal text-text-primary/80 dark:text-text-dark/80">
                   Tropican Fizz, Indigo Fizz, Sunset Dragon, Guava Fizz, Rasberry Wave, Pink Lychee Fizz, Mango Wave, Citrus Tea, Ocean Bliss, Passion Raz.
                 </p>
               </div>
             </div>
+             {/*Bubble waffle*/}
+            <div className="flex flex-col rounded-xl shadow-soft dark:shadow-soft-dark bg-card-light dark:bg-card-dark overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+              <div 
+                className="h-48 w-full bg-cover bg-center" 
+                style={{ backgroundImage: 'url(/images/BubbleWaffle.png)' }}
+                alt="Three colorful milkshakes with whipped cream and toppings lined up."
+              ></div>
+              <div className="flex flex-grow flex-col items-stretch justify-start p-6">
+                <a href="https://www.clover.com/online-ordering/scooptheory" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                  <h3 className="text-2xl font-bold leading-tight tracking-tight text-text-primary dark:text-text-dark">Bubble waffle</h3>
+                </a>
+                <p className="mt-3 text-sm font-normal text-text-primary/80 dark:text-text-dark/80">
+                  Salted Caramel Pretzels, Dubai Chocolate, Chocolate Raspberry, Nutella, Midnight Cookies and Cream, Peanut Butter.
+                </p>
+              </div>
+            </div>
+
+
           </div>
         </div>
 
+       
         {/* Ice Cream Menu */}
         <section className="py-20 bg-secondary/10 dark:bg-background-dark">
           <div className="container mx-auto px-6">
@@ -213,9 +238,9 @@ const Menu = () => {
                   Egg Free
                 </span>
               </div>
-              {/*Flaooda*/}
+              {/*Falooda*/}
               <div className="bg-background-light dark:bg-gray-800 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 p-6">
-                <h3 className="text-2xl font-bold text-text-dark dark:text-text-light mb-4">FLOODA</h3>
+                <h3 className="text-2xl font-bold text-text-dark dark:text-text-light mb-4">FALOODA</h3>
                 <p className="text-text-dark/70 dark:text-text-light/70 mb-4 leading-relaxed">
                  Basil seeds, Vermicelli noodles Saffron and Rose Petals Infused Ice Cream
                 </p>

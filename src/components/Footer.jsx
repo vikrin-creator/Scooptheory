@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-2">
               <Link to="/" className="flex items-center gap-2">
-                <img src="/logo.png" alt="Scoop Theory" className="h-12 object-cover" />
+                <img src="/logo.png" alt="Scoop Theory" className="h-20 object-cover" />
               </Link>
             </div>
             <p className="text-text-primary/80 dark:text-text-dark/80 text-sm">Serving joy by the spoonful.</p>
@@ -17,15 +17,15 @@ const Footer = () => {
           
           <div className="flex flex-col gap-3">
             <h3 className="font-bold text-text-primary dark:text-text-dark">Quick Links</h3>
-            <Link to="/" className="text-sm text-text-primary/80 dark:text-text-dark/80 hover:text-primary">Home</Link>
-            <Link to="/menu" className="text-sm text-text-primary/80 dark:text-text-dark/80 hover:text-primary">Menu</Link>
-            <Link to="/contact" className="text-sm text-text-primary/80 dark:text-text-dark/80 hover:text-primary">Contact</Link>
+            <Link to="/" onClick={() => window.scrollTo(0, 0)} className="text-sm text-text-primary/80 dark:text-text-dark/80 hover:text-primary">Home</Link>
+            <Link to="/menu" onClick={() => window.scrollTo(0, 0)} className="text-sm text-text-primary/80 dark:text-text-dark/80 hover:text-primary">Menu</Link>
+            <Link to="/contact" onClick={() => window.scrollTo(0, 0)} className="text-sm text-text-primary/80 dark:text-text-dark/80 hover:text-primary">Contact</Link>
           </div>
           
           <div className="flex flex-col gap-3">
             <h3 className="font-bold text-text-primary dark:text-text-dark">Visit Us</h3>
             <p className="text-sm text-text-primary/80 dark:text-text-dark/80">129 S Livingston Ave, Livingston NJ  - 07039</p>
-            <p className="text-sm text-text-primary/80 dark:text-text-dark/80">Mon - Sun: 2PM - 9PM</p>
+           
           </div>
           
           <div className="flex flex-col gap-3">

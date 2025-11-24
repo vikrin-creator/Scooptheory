@@ -20,102 +20,125 @@ function ScrollToTop() {
   return null;
 }
 
-function App() {
+// Header component with active route highlighting
+function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
+
+  const getLinkClass = (path) => {
+    return isActive(path)
+      ? "text-[#E5A1A6] dark:text-[#E5A1A6] text-sm font-bold leading-normal transition-colors"
+      : "text-text-primary dark:text-text-dark text-sm font-medium leading-normal hover:text-primary transition-colors";
+  };
+
+  const getMobileLinkClass = (path) => {
+    return isActive(path)
+      ? "text-[#E5A1A6] dark:text-[#E5A1A6] text-base font-bold py-2 px-4 bg-primary/10 rounded-lg"
+      : "text-text-primary dark:text-text-dark text-base font-medium py-2 px-4 hover:bg-primary/10 rounded-lg";
+  };
+
+  return (
+    <header className="sticky top-0 z-50 flex w-full justify-center bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm shadow-sm">
+      <div className="flex items-center justify-between whitespace-nowrap px-4 sm:px-10 py-2 max-w-6xl w-full">
+        <div className="flex items-center gap-2 -ml-2">
+          <Link to="/" className="flex items-center gap-2 text-text-primary dark:text-text-dark">
+            <img src="/logo.png" alt="Scoop Theory" className="h-20 object-cover" />
+          </Link>
+        </div>
+        
+        <nav className="hidden md:flex flex-1 justify-center gap-8">
+          <Link to="/" className={getLinkClass("/")}>Home</Link>
+          <Link to="/about" className={getLinkClass("/about")}>Our Story</Link>
+          <Link to="/menu" className={getLinkClass("/menu")}>Menu</Link>
+          <Link to="/gallery" className={getLinkClass("/gallery")}>Products</Link>
+          <Link to="/contact" className={getLinkClass("/contact")}>Contact</Link>
+        </nav>
+        
+        <div className="hidden md:flex justify-end">
+          <a href="https://www.clover.com/online-ordering/scooptheory" target="_blank" rel="noopener noreferrer" className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-6 bg-primary text-text-primary text-sm font-bold leading-normal tracking-wide shadow-sm hover:opacity-90 transition-opacity">
+            <span className="truncate">Order Now</span>
+          </a>
+        </div>
+        
+        <div className="md:hidden">
+          <button 
+            className="p-2"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <span className="material-symbols-outlined text-text-primary dark:text-text-dark">
+              {isMenuOpen ? 'close' : 'menu'}
+            </span>
+          </button>
+        </div>
+      </div>
+      
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="absolute top-full left-0 right-0 bg-background-light dark:bg-background-dark shadow-lg md:hidden">
+          <div className="flex flex-col p-4 space-y-4">
+            <Link 
+              to="/" 
+              className={getMobileLinkClass("/")}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Home
+            </Link>
+            <Link 
+              to="/about" 
+              className={getMobileLinkClass("/about")}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Our Story
+            </Link>
+            <Link 
+              to="/menu" 
+              className={getMobileLinkClass("/menu")}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Menu
+            </Link>
+            <Link 
+              to="/gallery" 
+              className={getMobileLinkClass("/gallery")}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Products
+            </Link>
+            <Link 
+              to="/contact" 
+              className={getMobileLinkClass("/contact")}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Contact
+            </Link>
+            <a href="https://www.clover.com/online-ordering/scooptheory" target="_blank" rel="noopener noreferrer" className="w-full mt-2 flex items-center justify-center h-10 px-6 bg-primary text-text-primary text-sm font-bold rounded-full shadow-sm hover:opacity-90 transition-opacity">
+              Order Now
+            </a>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+}
+
+function App() {
   return (
     <HelmetProvider>
       <Router>
         <ScrollToTop />
-      <div className="relative min-h-screen w-full flex flex-col font-display bg-background-light dark:bg-background-dark">
-        {/* TopNavBar */}
-        <header className="sticky top-0 z-50 flex w-full justify-center bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm shadow-sm">
-          <div className="flex items-center justify-between whitespace-nowrap px-4 sm:px-10 py-2 max-w-6xl w-full">
-            <div className="flex items-center gap-2 -ml-2">
-              <Link to="/" className="flex items-center gap-2 text-text-primary dark:text-text-dark">
-                <img src="/logo.png" alt="Scoop Theory" className="h-16 object-cover" />
-              </Link>
-            </div>
-            
-            <nav className="hidden md:flex flex-1 justify-center gap-8">
-              <Link to="/" className="text-text-primary dark:text-text-dark text-sm font-medium leading-normal hover:text-primary transition-colors">Home</Link>
-              <Link to="/about" className="text-text-primary dark:text-text-dark text-sm font-medium leading-normal hover:text-primary transition-colors">Our Story</Link>
-              <Link to="/menu" className="text-text-primary dark:text-text-dark text-sm font-medium leading-normal hover:text-primary transition-colors">Menu</Link>
-              <Link to="/gallery" className="text-text-primary dark:text-text-dark text-sm font-medium leading-normal hover:text-primary transition-colors">Products</Link>
-              <Link to="/contact" className="text-text-primary dark:text-text-dark text-sm font-medium leading-normal hover:text-primary transition-colors">Contact</Link>
-            </nav>
-            
-            <div className="hidden md:flex justify-end">
-              <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-6 bg-primary text-text-primary text-sm font-bold leading-normal tracking-wide shadow-sm hover:opacity-90 transition-opacity">
-                <span className="truncate">Order Now</span>
-              </button>
-            </div>
-            
-            <div className="md:hidden">
-              <button 
-                className="p-2"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-              >
-                <span className="material-symbols-outlined text-text-primary dark:text-text-dark">
-                  {isMenuOpen ? 'close' : 'menu'}
-                </span>
-              </button>
-            </div>
-          </div>
+        <div className="relative min-h-screen w-full flex flex-col font-display bg-background-light dark:bg-background-dark">
+          <Header />
           
-          {/* Mobile Menu */}
-          {isMenuOpen && (
-            <div className="absolute top-full left-0 right-0 bg-background-light dark:bg-background-dark shadow-lg md:hidden">
-              <div className="flex flex-col p-4 space-y-4">
-                <Link 
-                  to="/" 
-                  className="text-text-primary dark:text-text-dark text-base font-medium py-2 px-4 hover:bg-primary/10 rounded-lg"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Home
-                </Link>
-                <Link 
-                  to="/about" 
-                  className="text-text-primary dark:text-text-dark text-base font-medium py-2 px-4 hover:bg-primary/10 rounded-lg"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Our Story
-                </Link>
-                <Link 
-                  to="/menu" 
-                  className="text-text-primary dark:text-text-dark text-base font-medium py-2 px-4 hover:bg-primary/10 rounded-lg"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Menu
-                </Link>
-                <Link 
-                  to="/gallery" 
-                  className="text-text-primary dark:text-text-dark text-base font-medium py-2 px-4 hover:bg-primary/10 rounded-lg"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Products
-                </Link>
-                <Link 
-                  to="/contact" 
-                  className="text-text-primary dark:text-text-dark text-base font-medium py-2 px-4 hover:bg-primary/10 rounded-lg"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Contact
-                </Link>
-                <button className="w-full mt-2 flex items-center justify-center h-10 px-6 bg-primary text-text-primary text-sm font-bold rounded-full shadow-sm hover:opacity-90 transition-opacity">
-                  Order Now
-                </button>
-              </div>
-            </div>
-          )}
-        </header>
-        
-        {/* Main Content */}
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/about" element={<About />} />
-            <Route path="/menu" element={<Menu />} />
-            <Route path="/gallery" element={<Products />} />
+          {/* Main Content */}
+          <main className="flex-grow">
+            <Routes>
+              <Route path="/about" element={<About />} />
+              <Route path="/menu" element={<Menu />} />
+              <Route path="/gallery" element={<Products />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/" element={
               <div className="w-full">
@@ -160,7 +183,7 @@ function App() {
                       <div className="lg:w-1/3 w-full">
                         <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-square">
                           <img 
-                            src="/images/taro_milk_tea.jpg" 
+                            src="/images/Scoop.png" 
                             alt="Crafting premium ice cream" 
                             className="w-full h-full object-cover"
                           />
@@ -208,14 +231,7 @@ function App() {
                           <p className="text-text-dark/70 dark:text-text-light/70 text-center leading-relaxed mb-6">
                             Each flavor is handcrafted in limited batches for unmatched freshness and taste.
                           </p>
-                          <div className="flex justify-center">
-                            <span className="inline-flex items-center text-primary font-medium group-hover:text-primary/80 transition-colors">
-                              Learn more
-                              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                              </svg>
-                            </span>
-                          </div>
+                          
                         </div>
                       </div>
                       
@@ -244,14 +260,7 @@ function App() {
                           <p className="text-text-dark/70 dark:text-text-light/70 text-center leading-relaxed mb-6">
                             Unique flavor profiles you won’t find anywhere else—designed to surprise and delight. 
                           </p>
-                          <div className="flex justify-center">
-                            <span className="inline-flex items-center text-primary font-medium group-hover:text-primary/80 transition-colors">
-                              Learn more
-                              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                              </svg>
-                            </span>
-                          </div>
+                          
                         </div>
                       </div>
                       
@@ -274,14 +283,7 @@ function App() {
                           <p className="text-text-dark/70 dark:text-text-light/70 text-center leading-relaxed mb-6">
                             Enjoy flavors that are both nostalgic and freshly imagined.
                           </p>
-                          <div className="flex justify-center">
-                            <span className="inline-flex items-center text-primary font-medium group-hover:text-primary/80 transition-colors">
-                              Learn more
-                              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                              </svg>
-                            </span>
-                          </div>
+                          
                         </div>
                       </div>
                     </div>
@@ -295,7 +297,7 @@ function App() {
                         </div>
                         <div className="group">
                           <div className="text-4xl md:text-5xl font-bold text-text-dark dark:text-text-light mb-2 group-hover:text-primary transition-colors">100%</div>
-                          <div className="text-text-dark/80 dark:text-text-light/80">Family-Run or Handcrafted In-Store</div>
+                          <div className="text-text-dark/80 dark:text-text-light/80">Family-Run and Handcrafted In-Store</div>
                         </div>
                         <div className="group">
                           <div className="text-4xl md:text-5xl font-bold text-text-dark dark:text-text-light mb-2 group-hover:text-primary transition-colors">5K+</div>
