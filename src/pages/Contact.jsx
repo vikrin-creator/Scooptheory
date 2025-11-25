@@ -56,7 +56,10 @@ const Contact = () => {
                   <span className="material-symbols-outlined text-secondary mt-1">schedule</span>
                   <div>
                     <p className="font-bold text-sm text-text-strong/70 dark:text-text-dark/70">Opening Hours</p>
-                    <p className="text-base font-medium">Mon - Sun : 2PM</p>
+                    <p className="text-base font-medium">2PM - 9PM (Mon - Wed)</p>
+                    <p className="text-base font-medium">2PM - 9:30PM (Thurs)</p>
+                    <p className="text-base font-medium">1PM - 10PM (Fri - Sat)</p>
+                    <p className="text-base font-medium">1PM - 9:30PM (Sun)</p>
                   </div>
                 </div>
                 

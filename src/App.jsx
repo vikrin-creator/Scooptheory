@@ -7,6 +7,7 @@ import Products from './pages/Products';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
 import SEOHead from './components/SEOHead';
+import Reviews from './components/Reviews';
 import { seoData } from './data/seoData';
 
 // ScrollToTop component to handle automatic scrolling on route changes
@@ -54,7 +55,7 @@ function Header() {
           <Link to="/" className={getLinkClass("/")}>Home</Link>
           <Link to="/about" className={getLinkClass("/about")}>Our Story</Link>
           <Link to="/menu" className={getLinkClass("/menu")}>Menu</Link>
-          <Link to="/gallery" className={getLinkClass("/gallery")}>Products</Link>
+          <Link to="/gallery" className={getLinkClass("/gallery")}>Party Rentals</Link>
           <Link to="/contact" className={getLinkClass("/contact")}>Contact</Link>
         </nav>
         
@@ -106,7 +107,7 @@ function Header() {
               className={getMobileLinkClass("/gallery")}
               onClick={() => setIsMenuOpen(false)}
             >
-              Products
+              Party Rentals
             </Link>
             <Link 
               to="/contact" 
@@ -307,6 +308,9 @@ function App() {
                     </div>
                   </div>
                 </section>
+
+                {/* Reviews Section */}
+                <Reviews />
               </div>
             } />
           </Routes>
