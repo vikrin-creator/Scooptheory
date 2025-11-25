@@ -41,6 +41,11 @@ const SEOHead = ({
 
   return (
     <Helmet>
+      {/* Favicon */}
+      <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+      <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+      <link rel="apple-touch-icon" href="/logo.png" />
+      
       {/* Primary Meta Tags */}
       <title>{title}</title>
       <meta name="title" content={title} />
