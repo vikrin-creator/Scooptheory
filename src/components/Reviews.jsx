@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 
 const Reviews = () => {
   const [expandedReview, setExpandedReview] = useState(null);
@@ -177,7 +177,7 @@ const Reviews = () => {
     );
   };
 
-  const ReviewCard = ({ review, index }) => {
+  const ReviewCard = memo(({ review, index }) => {
     const isExpanded = expandedReview === index;
     const shouldTruncate = review.text.length > 150;
     const displayText = isExpanded || !shouldTruncate 
@@ -207,7 +207,7 @@ const Reviews = () => {
         )}
       </div>
     );
-  };
+  });
 
   return (
     <section className="py-12 bg-[#F5EEDC] dark:bg-background-dark">
@@ -219,7 +219,7 @@ const Reviews = () => {
 
       {/* Animated flowing reviews - Full width */}
       <div className="w-full overflow-hidden">
-        <div className="flex gap-8 animate-scroll-left py-4">
+        <div className="flex gap-8 animate-scroll-left py-4" style={{ willChange: 'transform' }}>
           {reviews.concat(reviews).map((review, index) => (
             <ReviewCard key={`review-${index}`} review={review} index={index} />
           ))}
@@ -230,7 +230,7 @@ const Reviews = () => {
         {/* Call to action */}
         <div className="text-center mt-8">
           <a
-            href="https://www.google.com/maps/place/Scoop+Theory"
+            href="https://www.google.com/maps?q=Scoop+Theory,+129+S+Livingston+Ave,+Livingston,+NJ+07039,+United+States"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-[#E5A1A6] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#d89097] transition-colors duration-300 shadow-lg hover:shadow-xl"
