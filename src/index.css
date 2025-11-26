@@ -19,8 +19,17 @@
 }
 
 @layer base {
+  html {
+    @apply overflow-x-hidden;
+  }
+  
   body {
-    @apply bg-background-light text-text-dark font-display dark:bg-background-dark dark:text-text-light;
+    @apply bg-background-light text-text-dark font-display dark:bg-background-dark dark:text-text-light overflow-x-hidden;
+    min-width: 320px;
+  }
+  
+  * {
+    @apply box-border;
   }
   
   h1, h2, h3, h4, h5, h6 {

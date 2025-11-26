@@ -23,7 +23,7 @@ const Reviews = () => {
       subtitle: "",
       time: "4 months ago",
       rating: 5,
-      text: "If you're a dessert lover, Urban Scoop is an absolute must-visit! I tried their signature Hong Kong-style bubble waffle loaded with three vibrant scoops of ice cream, and it was hands down one of the best desserts I've ever had. Each scoop had its own unique flavor, rich and creamy with just the right amount of sweetness. The bubble waffle was warm, crisp on the outside, and fluffy inside — the perfect contrast to the cold ice cream. And the drizzle of chocolate sauce on top? Pure magic. 😋"
+      text: "If you're a dessert lover,Scoop Theory is an absolute must-visit! I tried their signature Hong Kong-style bubble waffle loaded with three vibrant scoops of ice cream, and it was hands down one of the best desserts I've ever had. Each scoop had its own unique flavor, rich and creamy with just the right amount of sweetness. The bubble waffle was warm, crisp on the outside, and fluffy inside — the perfect contrast to the cold ice cream. And the drizzle of chocolate sauce on top? Pure magic. 😋"
     },
     {
       name: "D Pat",
@@ -44,7 +44,7 @@ const Reviews = () => {
       subtitle: "",
       time: "6 months ago",
       rating: 5,
-      text: "Urban scoop catered ice cream for an Indian event in Livingston and their flavors were unique and tasted awesome. We ordered strawberry-lychee, pistachios and Vanilla and everyone loved it and came back for seconds!! Wishing all the best for their team in Livingston!"
+      text: "scoop theory catered ice cream for an Indian event in Livingston and their flavors were unique and tasted awesome. We ordered strawberry-lychee, pistachios and Vanilla and everyone loved it and came back for seconds!! Wishing all the best for their team in Livingston!"
     },
     {
       name: "Arati Kaza",
@@ -86,7 +86,7 @@ const Reviews = () => {
       subtitle: "",
       time: "Recently",
       rating: 5,
-      text: "Urban Scoop has the most delicious and unique ice cream! We've been many times and it never disappoints!! The owners are incredibly kind (and patient) - this store is such a welcome addition to our community! We've tried the chocolate fudge cookie, passion fruit, ubae cookie dough, peanut butter and birthday cake special. All were so flavorful and delicious! We can't wait to go back!"
+      text: "Scoop Theory has the most delicious and unique ice cream! We've been many times and it never disappoints!! The owners are incredibly kind (and patient) - this store is such a welcome addition to our community! We've tried the chocolate fudge cookie, passion fruit, ubae cookie dough, peanut butter and birthday cake special. All were so flavorful and delicious! We can't wait to go back!"
     },
     {
       name: "Marci Selsberg",

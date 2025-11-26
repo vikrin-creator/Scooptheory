@@ -9,8 +9,8 @@ const Products = () => {
       
       {/* Hero Section */}
       <div className="relative">
-        <div className="container mx-auto px-4 py-16 md:py-24">
-          <div className="text-center mb-12">
+        <div className="container mx-auto px-4 py-8 md:py-12">
+          <div className="text-center mb-8">
             <h1 className="text-text-dark dark:text-text-light text-4xl md:text-6xl font-black leading-tight tracking-tight mb-6">
               Party Rentals
             </h1>
@@ -20,10 +20,10 @@ const Products = () => {
           </div>
 
           {/* Main Content Card */}
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <div className="bg-white dark:bg-background-dark/50 rounded-3xl shadow-2xl overflow-hidden">
               {/* Party Image */}
-              <div className="relative h-64 md:h-96 overflow-hidden">
+              <div className="relative h-80 md:h-[500px] overflow-hidden">
                 <img 
                   src="/images/party.png" 
                   alt="Birthday party celebration at Scoop Theory" 
@@ -94,7 +94,7 @@ const Products = () => {
           </div>
 
           {/* Features Section */}
-          <div className="max-w-5xl mx-auto mt-12">
+          <div className="max-w-6xl mx-auto mt-12">
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white dark:bg-background-dark/50 rounded-2xl p-6 text-center shadow-lg">
                 <div className="mb-4">
