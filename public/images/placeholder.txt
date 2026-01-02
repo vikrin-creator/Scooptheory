@@ -1,0 +1,14 @@
+# Placeholder Images for Scoop Theory
+
+Please replace these placeholder images with your actual images by:
+1. Saving your images to this directory (public/images/)
+2. Using these exact filenames:
+   - about_hero_bg.jpg
+   - ice_cream_cone.jpg
+   - cafe_interior.jpg
+   - gallery_matcha.jpg
+   - gallery_friends.jpg
+   - gallery_boba.jpg
+   - gallery_neon_sign.jpg
+
+You can delete this file after adding your images.
