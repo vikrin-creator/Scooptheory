@@ -81,9 +81,7 @@ const Menu = () => {
                 <a href="https://www.clover.com/online-ordering/scooptheory" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
                   <h3 className="text-2xl font-bold leading-tight tracking-tight text-text-primary dark:text-text-dark">Bubble waffle</h3>
                 </a>
-                <p className="mt-3 text-sm font-normal text-text-primary/80 dark:text-text-dark/80">
-                  Salted Caramel Pretzels, Dubai Chocolate, Chocolate Raspberry, Nutella, Midnight Cookies and Cream, Peanut Butter.
-                </p>
+
               </div>
             </div>
 
@@ -143,9 +141,6 @@ const Menu = () => {
                 <p className="text-text-dark/70 dark:text-text-light/70 mb-4 leading-relaxed">
                   Layered with Homemade Blueberry Jam and Graham Cracker Crips
                 </p>
-                <span className="inline-block px-4 py-2 bg-secondary text-text-dark font-semibold text-sm rounded-full shadow-md border-2 border-secondary/50 hover:bg-secondary/80 transition-colors">
-                  Egg Free
-                </span>
               </div>
 
 
@@ -155,9 +150,6 @@ const Menu = () => {
                 <p className="text-text-dark/70 dark:text-text-light/70 mb-4 leading-relaxed">
                   Coco, Coffee and Cream Cheese Infused Ice Cream Layered With Lady Fingers And Fudge
                 </p>
-                <span className="inline-block px-4 py-2 bg-secondary text-text-dark font-semibold text-sm rounded-full shadow-md border-2 border-secondary/50 hover:bg-secondary/80 transition-colors">
-                  Egg Free
-                </span>
               </div>
 
               {/* Hazelnut Rocks */}
@@ -166,9 +158,6 @@ const Menu = () => {
                 <p className="text-text-dark/70 dark:text-text-light/70 mb-4 leading-relaxed">
                   Hazelnut infused Ice Cream with Chocolate crips and crushed Hazelnuts
                 </p>
-                <span className="inline-block px-4 py-2 bg-secondary text-text-dark font-semibold text-sm rounded-full shadow-md border-2 border-secondary/50 hover:bg-secondary/80 transition-colors">
-                  Egg Free
-                </span>
               </div>
 
               {/* Ube Brownie */}
@@ -185,20 +174,14 @@ const Menu = () => {
                 <p className="text-text-dark/70 dark:text-text-light/70 mb-4 leading-relaxed">
                   Salt Infused Ice Cream Layered with Swirls of Caramel & Vanilla Cookies
                 </p>
-                <span className="inline-block px-4 py-2 bg-secondary text-text-dark font-semibold text-sm rounded-full shadow-md border-2 border-secondary/50 hover:bg-secondary/80 transition-colors">
-                  Egg Free
-                </span>
               </div>
 
               {/* Cookies & Cream */}
               <div className="bg-background-light dark:bg-gray-800 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 p-6">
                 <h3 className="text-2xl font-bold text-text-dark dark:text-text-light mb-4">Cookies & Cream</h3>
                 <p className="text-text-dark/70 dark:text-text-light/70 mb-4 leading-relaxed">
-                  Oreo Infused Ice Cream With Oreos And Chocolate Chip Cookies, Finished With Swirls Of Fudge
+                  Oreo Infused Ice Cream With Chocolate Chip Cookies, Finished With Swirls Of Fudge
                 </p>
-                <span className="inline-block px-4 py-2 bg-secondary text-text-dark font-semibold text-sm rounded-full shadow-md border-2 border-secondary/50 hover:bg-secondary/80 transition-colors">
-                  Egg Free
-                </span>
               </div>
 
               {/* Kulfi */}
@@ -207,15 +190,15 @@ const Menu = () => {
                 <p className="text-text-dark/70 dark:text-text-light/70 mb-4 leading-relaxed">
                   Saffron Infused Ice Cream With Almond, Pistachio & Cardamom Powder
                 </p>
-                <span className="inline-block px-4 py-2 bg-secondary text-text-dark font-semibold text-sm rounded-full shadow-md border-2 border-secondary/50 hover:bg-secondary/80 transition-colors">
-                  Egg Free
+                <span className="inline-block px-4 py-2 bg-primary text-text-dark font-semibold text-sm rounded-full shadow-md border-2 border-primary/50 hover:bg-primary/80 transition-colors">
+                  Egg and Gluten Free
                 </span>
               </div>
-              {/*Mango Mango */}
+              {/*Mango */}
               <div className="bg-background-light dark:bg-gray-800 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 p-6">
-                <h3 className="text-2xl font-bold text-text-dark dark:text-text-light mb-4">Mango Mango</h3>
+                <h3 className="text-2xl font-bold text-text-dark dark:text-text-light mb-4">Mango</h3>
                 <p className="text-text-dark/70 dark:text-text-light/70 mb-4 leading-relaxed">
-                  Fresh Mango with Fresh Mango Chunks
+                  Fresh Mango with Chunks
                 </p>
                 <span className="inline-block px-4 py-2 bg-primary text-text-dark font-semibold text-sm rounded-full shadow-md border-2 border-primary/50 hover:bg-primary/80 transition-colors">
                   Egg and Gluten Free
@@ -228,9 +211,6 @@ const Menu = () => {
                 <p className="text-text-dark/70 dark:text-text-light/70 mb-4 leading-relaxed">
                   Mint Infused Ice Cream layered with Dark Chocolate Chips
                 </p>
-                <span className="inline-block px-4 py-2 bg-secondary text-text-dark font-semibold text-sm rounded-full shadow-md border-2 border-secondary/50 hover:bg-secondary/80 transition-colors">
-                  Egg Free
-                </span>
               </div>
               {/*Falooda*/}
               <div className="bg-background-light dark:bg-gray-800 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 p-6">
@@ -238,9 +218,6 @@ const Menu = () => {
                 <p className="text-text-dark/70 dark:text-text-light/70 mb-4 leading-relaxed">
                  Basil seeds, Vermicelli noodles Saffron and Rose Petals Infused Ice Cream
                 </p>
-                <span className="inline-block px-4 py-2 bg-secondary text-text-dark font-semibold text-sm rounded-full shadow-md border-2 border-secondary/50 hover:bg-secondary/80 transition-colors">
-                  Egg Free
-                </span>
               </div>
 
               {/*Masala chai*/}
@@ -249,9 +226,6 @@ const Menu = () => {
                 <p className="text-text-dark/70 dark:text-text-light/70 mb-4 leading-relaxed">
                  Chai Tea Infused with Cinnamon, Black Pepper,Nutmeg,Fennel and Ginger
                 </p>
-                <span className="inline-block px-4 py-2 bg-secondary text-text-dark font-semibold text-sm rounded-full shadow-md border-2 border-secondary/50 hover:bg-secondary/80 transition-colors">
-                  Egg Free
-                </span>
               </div>
               {/*Strawberry lychee*/}
               <div className="bg-background-light dark:bg-gray-800 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 p-6">
@@ -270,9 +244,7 @@ const Menu = () => {
                 <p className="text-text-dark/70 dark:text-text-light/70 mb-4 leading-relaxed">
                  Home made yellow Cake Layered with Strawberry Infused Ice Cream
                 </p>
-                <span className="inline-block px-3 py-1 bg-secondary/30 text-text-dark dark:text-text-light text-sm rounded-full">
-                
-                </span>
+
               </div>
 
               {/*Chocolate Triple*/}
@@ -281,9 +253,7 @@ const Menu = () => {
                 <p className="text-text-dark/70 dark:text-text-light/70 mb-4 leading-relaxed">
                  Chocolate Ice Cream layered with Fudge, Homemade Chocolate Cake, Chocolate Brownie and Chocolate Chips 
                 </p>
-                <span className="inline-block px-3 py-1 bg-secondary/30 text-text-dark dark:text-text-light text-sm rounded-full">
-                 
-                </span>
+
               </div>
               
 
@@ -295,9 +265,6 @@ const Menu = () => {
                 <p className="text-text-dark/70 dark:text-text-light/70 mb-4 leading-relaxed">
                  Lucky charm infused  ice cream layered with lucky charm cereal and marshmallow
                 </p>
-                <span className="inline-block px-4 py-2 bg-secondary text-text-dark font-semibold text-sm rounded-full shadow-md border-2 border-secondary/50 hover:bg-secondary/80 transition-colors">
-                  Egg Free
-                </span>
               </div>
                 {/*Black Sesame*/}
               <div className="bg-background-light dark:bg-gray-800 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 p-6">
@@ -328,21 +295,8 @@ const Menu = () => {
                 <p className="text-text-dark/70 dark:text-text-light/70 mb-4 leading-relaxed">
                 Peanut Infused Ice Cream Layered with Peanut Butter & Homemade Chocolate Shell
                 </p>
-                <span className="inline-block px-4 py-2 bg-secondary text-text-dark font-semibold text-sm rounded-full shadow-md border-2 border-secondary/50 hover:bg-secondary/80 transition-colors">
-                  Egg Free
-                </span>
               </div>
 
-              {/*Sugar Free Vanilla*/}
-              <div className="bg-background-light dark:bg-gray-800 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 p-6">
-                <h3 className="text-2xl font-bold text-text-dark dark:text-text-light mb-4">Sugar Free Vanilla</h3>
-                <p className="text-text-dark/70 dark:text-text-light/70 mb-4 leading-relaxed">
-                Sugar-free Pure Bourbon Vanilla Ice Cream  
-                </p>
-                <span className="inline-block px-3 py-1 bg-secondary/30 text-text-dark dark:text-text-light text-sm rounded-full">
-                
-                </span>
-              </div>
 
               {/*Raspberry Donut*/}
               <div className="bg-background-light dark:bg-gray-800 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 p-6">
@@ -350,9 +304,6 @@ const Menu = () => {
                 <p className="text-text-dark/70 dark:text-text-light/70 mb-4 leading-relaxed">
                 Powered Raspberry Filled Donuts Layered into Powered Sugar Vanilla Ice Cream 
                 </p>
-                <span className="inline-block px-4 py-2 bg-secondary text-text-dark font-semibold text-sm rounded-full shadow-md border-2 border-secondary/50 hover:bg-secondary/80 transition-colors">
-                  Egg Free
-                </span>
               </div>
 
 
@@ -373,9 +324,7 @@ const Menu = () => {
                 <p className="text-text-dark/70 dark:text-text-light/70 mb-4 leading-relaxed">
                   Cream cheese Infused Ice Cream layered with Crumbles of Gooey Butter cake and swirls of caramel
                 </p>
-                <span className="inline-block px-3 py-1 bg-secondary/30 text-text-dark dark:text-text-light text-sm rounded-full">
-                
-                </span>
+
               </div>
 
               {/*Dubai Chocolate*/}
@@ -387,9 +336,7 @@ const Menu = () => {
 
                  
                  </p>
-                <span className="inline-block px-3 py-1 bg-secondary/30 text-text-dark dark:text-text-light text-sm rounded-full">
-                
-                </span>
+
               </div>
 
 
