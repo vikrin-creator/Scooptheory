@@ -45,4 +45,4 @@ jobs:
           password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
           port: 21
           local-dir: ./dist/
-          server-dir: ./
+          server-dir: /domains/gray-gerbil-641296.hostingersite.com/public_html/
