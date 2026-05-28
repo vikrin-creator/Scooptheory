@@ -1,4 +1,7 @@
 <?php
+if (function_exists('opcache_invalidate')) {
+    opcache_invalidate(__DIR__ . '/config.php', true);
+}
 require_once __DIR__ . '/config.php';
 
 header('Content-Type: application/json; charset=utf-8');
