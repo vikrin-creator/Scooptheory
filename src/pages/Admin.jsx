@@ -977,11 +977,14 @@ const AdminPanel = ({ onLogout }) => {
   const [settings, setSettings]   = useState({ hours: {}, social: {} });
   const [loading, setLoading]     = useState(true);
   const [apiError, setApiError]   = useState(false);
+  const [isSandbox, setIsSandbox] = useState(false);
   const { toasts, addToast, removeToast } = useToast();
 
   const fetchAll = useCallback(async () => {
     setLoading(true);
     setApiError(false);
+    setIsSandbox(false);
+    window.__scoop_sandbox = false;
     try {
       const [menuRes, msgRes, revRes, setRes] = await Promise.all([
         api.get('menu.php'),
@@ -998,6 +1001,7 @@ const AdminPanel = ({ onLogout }) => {
         if (setRes.data && typeof setRes.data === 'object' && !Array.isArray(setRes.data)) {
           setSettings(setRes.data);
         }
+        setIsSandbox(!!window.__scoop_sandbox);
       } else {
         console.warn('API returned non-array data. It might be returning index.html due to not being deployed yet.');
         setApiError(true);
@@ -1068,7 +1072,7 @@ const AdminPanel = ({ onLogout }) => {
           <div>
             <h1 style={{ color: '#2C1A19', fontSize: '18px', fontWeight: '800', margin: 0 }}>{tabs.find(t => t.id === activeTab)?.label}</h1>
             <p style={{ color: '#b09090', fontSize: '12px', margin: 0 }}>
-              {loading ? '⏳ Loading...' : apiError ? '⚠️ Running in Browser Sandbox' : '🟢 Connected to database'}
+              {loading ? '⏳ Loading...' : (apiError || isSandbox) ? '⚠️ Running in Browser Sandbox' : '🟢 Connected to database'}
             </p>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
@@ -1081,7 +1085,7 @@ const AdminPanel = ({ onLogout }) => {
 
         {/* Content */}
         <div style={{ padding: '32px', flex: 1 }}>
-          {apiError && <ApiError onRetry={fetchAll} />}
+          {(apiError || isSandbox) && <ApiError onRetry={fetchAll} />}
           <Routes>
             <Route path="/" element={<DashboardTab flavors={flavors} messages={messages} reviews={reviews} settings={settings} loading={loading} />} />
             <Route path="dashboard" element={<DashboardTab flavors={flavors} messages={messages} reviews={reviews} settings={settings} loading={loading} />} />
