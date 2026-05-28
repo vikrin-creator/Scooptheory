@@ -5,6 +5,7 @@ import About from './pages/About';
 import Menu from './pages/Menu';
 import Products from './pages/Products';
 import Contact from './pages/Contact';
+import Admin from './pages/Admin';
 import Footer from './components/Footer';
 import SEOHead from './components/SEOHead';
 import Reviews from './components/Reviews';
@@ -126,21 +127,29 @@ function Header() {
   );
 }
 
-function App() {
+function AppContent() {
+  const location = useLocation();
+  const isAdmin = location.pathname.startsWith('/admin');
+
+  if (isAdmin) {
+    return (
+      <Routes>
+        <Route path="/admin" element={<Admin />} />
+      </Routes>
+    );
+  }
+
   return (
-    <HelmetProvider>
-      <Router>
-        <ScrollToTop />
-        <div className="relative min-h-screen w-full flex flex-col font-display bg-background-light dark:bg-background-dark">
-          <Header />
-          
-          {/* Main Content */}
-          <main className="flex-grow">
-            <Routes>
-              <Route path="/about" element={<About />} />
-              <Route path="/menu" element={<Menu />} />
-              <Route path="/gallery" element={<Products />} />
-            <Route path="/contact" element={<Contact />} />
+    <div className="relative min-h-screen w-full flex flex-col font-display bg-background-light dark:bg-background-dark">
+      <Header />
+      
+      {/* Main Content */}
+      <main className="flex-grow">
+        <Routes>
+          <Route path="/about" element={<About />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/gallery" element={<Products />} />
+          <Route path="/contact" element={<Contact />} />
             <Route path="/" element={
               <div className="w-full">
                 <SEOHead {...seoData.home} />
@@ -317,10 +326,17 @@ function App() {
         </main>
         
         <Footer />
-        
-        
       </div>
-    </Router>
+  );
+}
+
+function App() {
+  return (
+    <HelmetProvider>
+      <Router>
+        <ScrollToTop />
+        <AppContent />
+      </Router>
     </HelmetProvider>
   );
 }

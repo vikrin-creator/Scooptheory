@@ -1,0 +1,21 @@
+# Apache config for the /api/ folder
+# Allows PHP files to be accessed, adds security headers
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # Block access to config.php directly from browser
+    RewriteRule ^config\.php$ - [F,L]
+</IfModule>
+
+# Prevent directory listing
+Options -Indexes
+
+# Set default charset
+AddDefaultCharset UTF-8
+
+# Security headers
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "DENY"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

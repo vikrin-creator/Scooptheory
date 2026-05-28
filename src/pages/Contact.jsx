@@ -1,8 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 import SEOHead from '../components/SEOHead';
 import { seoData } from '../data/seoData';
 
+const API_BASE = import.meta.env.VITE_API_URL || '/api';
+
 const Contact = () => {
+  const [form, setForm]       = useState({ name: '', email: '', message: '' });
+  const [status, setStatus]   = useState('idle'); // idle | loading | success | error
+  const [errMsg, setErrMsg]   = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!form.name || !form.email || !form.message) {
+      setErrMsg('Please fill in all fields.');
+      setStatus('error');
+      return;
+    }
+    setStatus('loading');
+    try {
+      await axios.post(`${API_BASE}/messages.php`, form);
+      setStatus('success');
+      setForm({ name: '', email: '', message: '' });
+    } catch (err) {
+      setErrMsg(err.response?.data?.error || 'Something went wrong. Please try again.');
+      setStatus('error');
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background-light dark:bg-background-dark">
       <SEOHead {...seoData.contact} />
@@ -84,53 +109,64 @@ const Contact = () => {
             </p>
             
             {/* Contact Form */}
-            <form className="space-y-5">
-              <div>
-                <label className="block text-sm font-bold mb-1" htmlFor="name">
-                  Your Name
-                </label>
-                <input 
-                  className="w-full rounded-lg border-text-strong/20 dark:border-text-dark/20 bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary transition shadow-sm p-3" 
-                  id="name" 
-                  name="name" 
-                  placeholder="e.g. Jane Doe" 
-                  type="text"
-                />
+            {status === 'success' ? (
+              <div className="flex flex-col items-center justify-center py-12 text-center">
+                <div className="text-5xl mb-4">🎉</div>
+                <h3 className="text-2xl font-bold text-text-strong dark:text-text-dark mb-2">Message Sent!</h3>
+                <p className="text-text-light/70 dark:text-text-dark/70 mb-6">Thanks for reaching out! We'll get back to you shortly.</p>
+                <button
+                  onClick={() => setStatus('idle')}
+                  className="flex items-center justify-center px-6 py-3 bg-primary text-text-strong font-bold rounded-full hover:opacity-90 transition-opacity"
+                >
+                  Send Another Message
+                </button>
               </div>
-              
-              <div>
-                <label className="block text-sm font-bold mb-1" htmlFor="email">
-                  Your Email
-                </label>
-                <input 
-                  className="w-full rounded-lg border-text-strong/20 dark:border-text-dark/20 bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary transition shadow-sm p-3" 
-                  id="email" 
-                  name="email" 
-                  placeholder="e.g. jane.doe@example.com" 
-                  type="email"
-                />
-              </div>
-              
-              <div>
-                <label className="block text-sm font-bold mb-1" htmlFor="message">
-                  Message
-                </label>
-                <textarea 
-                  className="w-full rounded-lg border-text-strong/20 dark:border-text-dark/20 bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary transition shadow-sm p-3" 
-                  id="message" 
-                  name="message" 
-                  placeholder="Tell us what's on your mind..." 
-                  rows="5"
-                />
-              </div>
-              
-              <button 
-                className="w-full flex cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-primary text-text-strong text-base font-bold shadow-soft hover:opacity-90 transition-opacity" 
-                type="submit"
-              >
-                Send Message
-              </button>
-            </form>
+            ) : (
+              <form className="space-y-5" onSubmit={handleSubmit}>
+                {status === 'error' && (
+                  <div className="flex items-center gap-3 p-3 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm">
+                    <span>⚠️</span> {errMsg}
+                  </div>
+                )}
+                <div>
+                  <label className="block text-sm font-bold mb-1" htmlFor="name">Your Name</label>
+                  <input
+                    className="w-full rounded-lg border border-text-strong/20 dark:border-text-dark/20 bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary transition shadow-sm p-3"
+                    id="name" name="name" placeholder="e.g. Jane Doe" type="text"
+                    value={form.name}
+                    onChange={e => { setForm(p => ({ ...p, name: e.target.value })); setStatus('idle'); }}
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-bold mb-1" htmlFor="email">Your Email</label>
+                  <input
+                    className="w-full rounded-lg border border-text-strong/20 dark:border-text-dark/20 bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary transition shadow-sm p-3"
+                    id="email" name="email" placeholder="e.g. jane.doe@example.com" type="email"
+                    value={form.email}
+                    onChange={e => { setForm(p => ({ ...p, email: e.target.value })); setStatus('idle'); }}
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-bold mb-1" htmlFor="message">Message</label>
+                  <textarea
+                    className="w-full rounded-lg border border-text-strong/20 dark:border-text-dark/20 bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary transition shadow-sm p-3"
+                    id="message" name="message" placeholder="Tell us what's on your mind..." rows="5"
+                    value={form.message}
+                    onChange={e => { setForm(p => ({ ...p, message: e.target.value })); setStatus('idle'); }}
+                    required
+                  />
+                </div>
+                <button
+                  className="w-full flex cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-primary text-text-strong text-base font-bold shadow-soft hover:opacity-90 transition-opacity disabled:opacity-50"
+                  type="submit"
+                  disabled={status === 'loading'}
+                >
+                  {status === 'loading' ? '⏳ Sending...' : 'Send Message'}
+                </button>
+              </form>
+            )}
             
             {/* Social Media Links */}
             <div className="mt-8 pt-6 border-t border-text-strong/10 dark:border-text-dark/10">
