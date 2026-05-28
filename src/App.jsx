@@ -134,7 +134,7 @@ function AppContent() {
   if (isAdmin) {
     return (
       <Routes>
-        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/*" element={<Admin />} />
       </Routes>
     );
   }

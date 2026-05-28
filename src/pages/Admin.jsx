@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useCallback, memo } from 'react';
 import axios from 'axios';
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 
 // ─────────────────────────────────────────────
 // CONFIG
 // Change this to your Hostinger domain when deployed
 // e.g. 'https://scoop-theory.com/api'
 // ─────────────────────────────────────────────
-const API_BASE = import.meta.env.VITE_API_URL || '/api';
+const API_BASE = import.meta.env.VITE_API_URL || '/api/';
 const ADMIN_PASSWORD = 'ScoopAdmin2025';
 
 // ─────────────────────────────────────────────
@@ -511,11 +512,11 @@ const MenuTab = ({ flavors, setFlavors, addToast }) => {
     setSaving(true);
     try {
       if (editItem) {
-        const { data } = await api.put('/menu.php', { ...form, id: editItem.id });
+        const { data } = await api.put('menu.php', { ...form, id: editItem.id });
         setFlavors(p => p.map(f => f.id === editItem.id ? data : f));
         addToast('Item updated successfully ✓');
       } else {
-        const { data } = await api.post('/menu.php', form);
+        const { data } = await api.post('menu.php', form);
         setFlavors(p => [...p, data]);
         addToast('Item added successfully ✓');
       }
@@ -527,7 +528,7 @@ const MenuTab = ({ flavors, setFlavors, addToast }) => {
 
   const handleDelete = async (id) => {
     try {
-      await api.delete(`/menu.php?id=${id}`);
+      await api.delete(`menu.php?id=${id}`);
       setFlavors(p => p.filter(f => f.id !== id));
       addToast('Item deleted');
     } catch { addToast('Failed to delete item', 'error'); }
@@ -536,7 +537,7 @@ const MenuTab = ({ flavors, setFlavors, addToast }) => {
 
   const toggleActive = async (item) => {
     try {
-      const { data } = await api.put('/menu.php', { ...item, active: !item.active });
+      const { data } = await api.put('menu.php', { ...item, active: !item.active });
       setFlavors(p => p.map(f => f.id === item.id ? data : f));
       addToast(data.active ? 'Item set to active' : 'Item hidden from menu');
     } catch { addToast('Failed to update status', 'error'); }
@@ -685,7 +686,7 @@ const ReviewsTab = ({ reviews, setReviews, addToast }) => {
     if (!form.name || !form.text) { addToast('Name and review text are required', 'error'); return; }
     setSaving(true);
     try {
-      const { data } = await api.post('/reviews.php', form);
+      const { data } = await api.post('reviews.php', form);
       setReviews(p => [data, ...p]);
       addToast('Review added ✓');
       setShowModal(false);
@@ -696,7 +697,7 @@ const ReviewsTab = ({ reviews, setReviews, addToast }) => {
 
   const toggleFeatured = async (review) => {
     try {
-      const { data } = await api.put('/reviews.php', { id: review.id, featured: !review.featured });
+      const { data } = await api.put('reviews.php', { id: review.id, featured: !review.featured });
       setReviews(p => p.map(r => r.id === review.id ? data : r));
       addToast(data.featured ? 'Review featured ⭐' : 'Review unfeatured');
     } catch { addToast('Failed to update review', 'error'); }
@@ -704,7 +705,7 @@ const ReviewsTab = ({ reviews, setReviews, addToast }) => {
 
   const deleteReview = async (id) => {
     try {
-      await api.delete(`/reviews.php?id=${id}`);
+      await api.delete(`reviews.php?id=${id}`);
       setReviews(p => p.filter(r => r.id !== id));
       addToast('Review deleted');
     } catch { addToast('Failed to delete review', 'error'); }
@@ -806,14 +807,14 @@ const MessagesTab = ({ messages, setMessages, addToast }) => {
   const markRead = async (msg) => {
     if (msg.read) return;
     try {
-      await api.put('/messages.php', { id: msg.id });
+      await api.put('messages.php', { id: msg.id });
       setMessages(p => p.map(m => m.id === msg.id ? { ...m, read: true, is_read: true } : m));
     } catch { /* silent fail */ }
   };
 
   const deleteMsg = async (id) => {
     try {
-      await api.delete(`/messages.php?id=${id}`);
+      await api.delete(`messages.php?id=${id}`);
       setMessages(p => p.filter(m => m.id !== id));
       if (selected?.id === id) setSelected(null);
       addToast('Message deleted');
@@ -888,7 +889,7 @@ const SettingsTab = ({ settings, setSettings, addToast }) => {
   const handleSave = async () => {
     setSaving(true);
     try {
-      await api.post('/settings.php', form);
+      await api.post('settings.php', form);
       setSettings(form);
       addToast('Settings saved successfully ✓');
     } catch { addToast('Failed to save settings', 'error'); }
@@ -959,7 +960,17 @@ const SettingsTab = ({ settings, setSettings, addToast }) => {
 // ADMIN PANEL (main layout)
 // ─────────────────────────────────────────────
 const AdminPanel = ({ onLogout }) => {
-  const [activeTab, setActiveTab] = useState('dashboard');
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Detect active tab from URL path (e.g. /admin/menu -> menu)
+  const getActiveTab = () => {
+    const pathParts = location.pathname.split('/').filter(Boolean);
+    const subTab = pathParts[1];
+    return subTab || 'dashboard';
+  };
+
+  const activeTab = getActiveTab();
   const [flavors, setFlavors]     = useState([]);
   const [messages, setMessages]   = useState([]);
   const [reviews, setReviews]     = useState([]);
@@ -973,10 +984,10 @@ const AdminPanel = ({ onLogout }) => {
     setApiError(false);
     try {
       const [menuRes, msgRes, revRes, setRes] = await Promise.all([
-        api.get('/menu.php'),
-        api.get('/messages.php'),
-        api.get('/reviews.php'),
-        api.get('/settings.php'),
+        api.get('menu.php'),
+        api.get('messages.php'),
+        api.get('reviews.php'),
+        api.get('settings.php'),
       ]);
       
       // Ensure we received valid arrays before setting states
@@ -1009,17 +1020,6 @@ const AdminPanel = ({ onLogout }) => {
     { id: 'settings',  label: 'Settings',  icon: 'settings' },
   ];
 
-  const renderTab = () => {
-    switch (activeTab) {
-      case 'dashboard': return <DashboardTab flavors={flavors} messages={messages} reviews={reviews} settings={settings} loading={loading} />;
-      case 'menu':      return <MenuTab  flavors={flavors}  setFlavors={setFlavors}   addToast={addToast} />;
-      case 'reviews':   return <ReviewsTab reviews={reviews} setReviews={setReviews}  addToast={addToast} />;
-      case 'messages':  return <MessagesTab messages={messages} setMessages={setMessages} addToast={addToast} />;
-      case 'settings':  return <SettingsTab settings={settings} setSettings={setSettings} addToast={addToast} />;
-      default:          return null;
-    }
-  };
-
   const sidebarWidth = 240;
 
   return (
@@ -1039,8 +1039,9 @@ const AdminPanel = ({ onLogout }) => {
         <nav style={{ flex: 1, padding: '16px 12px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
           {tabs.map(tab => {
             const active = activeTab === tab.id;
+            const targetPath = tab.id === 'dashboard' ? '/admin' : `/admin/${tab.id}`;
             return (
-              <button key={tab.id} onClick={() => setActiveTab(tab.id)} style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '11px 14px', borderRadius: '12px', border: 'none', background: active ? 'rgba(229,161,166,0.15)' : 'transparent', color: active ? '#E5A1A6' : 'rgba(247,212,212,0.5)', fontSize: '14px', fontWeight: active ? '700' : '500', cursor: 'pointer', fontFamily: 'inherit', position: 'relative', textAlign: 'left', width: '100%' }}>
+              <button key={tab.id} onClick={() => navigate(targetPath)} style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '11px 14px', borderRadius: '12px', border: 'none', background: active ? 'rgba(229,161,166,0.15)' : 'transparent', color: active ? '#E5A1A6' : 'rgba(247,212,212,0.5)', fontSize: '14px', fontWeight: active ? '700' : '500', cursor: 'pointer', fontFamily: 'inherit', position: 'relative', textAlign: 'left', width: '100%' }}>
                 <Icon name={tab.icon} size={18} />
                 {tab.label}
                 {tab.badge > 0 && <span style={{ marginLeft: 'auto', background: '#E5A1A6', color: '#fff', fontSize: '11px', fontWeight: '800', padding: '1px 7px', borderRadius: '99px' }}>{tab.badge}</span>}
@@ -1081,7 +1082,14 @@ const AdminPanel = ({ onLogout }) => {
         {/* Content */}
         <div style={{ padding: '32px', flex: 1 }}>
           {apiError && <ApiError onRetry={fetchAll} />}
-          {renderTab()}
+          <Routes>
+            <Route path="/" element={<DashboardTab flavors={flavors} messages={messages} reviews={reviews} settings={settings} loading={loading} />} />
+            <Route path="dashboard" element={<DashboardTab flavors={flavors} messages={messages} reviews={reviews} settings={settings} loading={loading} />} />
+            <Route path="menu" element={<MenuTab flavors={flavors} setFlavors={setFlavors} addToast={addToast} />} />
+            <Route path="reviews" element={<ReviewsTab reviews={reviews} setReviews={setReviews} addToast={addToast} />} />
+            <Route path="messages" element={<MessagesTab messages={messages} setMessages={setMessages} addToast={addToast} />} />
+            <Route path="settings" element={<SettingsTab settings={settings} setSettings={setSettings} addToast={addToast} />} />
+          </Routes>
         </div>
       </main>
 
