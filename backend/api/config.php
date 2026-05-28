@@ -3,8 +3,8 @@
 // DATABASE CONFIGURATION — Scoop Theory
 // ─────────────────────────────────────────────
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'u177524058_ScoopTheory');
-define('DB_USER', 'u177524058_ScoopTheory');
+define('DB_NAME', 'u177524058_scooptheory');
+define('DB_USER', 'u177524058_scooptheory');
 define('DB_PASS', 'Devima@0812');
 
 /**
