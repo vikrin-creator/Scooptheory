@@ -11,166 +11,10 @@ const rawApiUrl = import.meta.env.VITE_API_URL || '/api/';
 const API_BASE = rawApiUrl.endsWith('/') ? rawApiUrl : rawApiUrl + '/';
 const ADMIN_PASSWORD = 'ScoopAdmin2025';
 
-// ─────────────────────────────────────────────
-// SANDBOX SEED DATA
-// ─────────────────────────────────────────────
-const SEED_FLAVORS = [
-  { id: 1, name: 'Pistachio', description: 'Pistachios Chunk Infused Ice Cream', badge: 'Egg and Gluten Free', category: 'Ice Cream', active: true },
-  { id: 2, name: 'Butterscotch', description: 'Classic butterscotch ice cream with rich, caramelized flavor', badge: 'Egg and Gluten Free', category: 'Ice Cream', active: true },
-  { id: 3, name: 'Vanilla Bourbon', description: 'Infused with Pure Madagascar Bourbon vanilla', badge: 'Egg and Gluten Free', category: 'Ice Cream', active: true },
-  { id: 4, name: 'BlueBerry Crisp', description: 'Layered with Homemade Blueberry Jam and Graham Cracker Crisps', badge: '', category: 'Ice Cream', active: true },
-  { id: 5, name: 'Tiramisu', description: 'Coco, Coffee and Cream Cheese Infused Ice Cream Layered With Lady Fingers And Fudge', badge: '', category: 'Ice Cream', active: true },
-  { id: 6, name: 'Hazelnut Rocks', description: 'Hazelnut infused Ice Cream with Chocolate crisps and crushed Hazelnuts', badge: '', category: 'Ice Cream', active: true },
-  { id: 7, name: 'Ube Brownie', description: 'Ube Infused Ice Cream Layered with Homemade Brownie Pieces', badge: '', category: 'Ice Cream', active: true },
-  { id: 8, name: 'Salted Caramel & Cookies', description: 'Salt Infused Ice Cream Layered with Swirls of Caramel & Vanilla Cookies', badge: '', category: 'Ice Cream', active: true },
-  { id: 9, name: 'Cookies & Cream', description: 'Oreo Infused Ice Cream With Chocolate Chip Cookies, Finished With Swirls Of Fudge', badge: '', category: 'Ice Cream', active: true },
-  { id: 10, name: 'Kulfi', description: 'Saffron Infused Ice Cream With Almond, Pistachio & Cardamom Powder', badge: 'Egg and Gluten Free', category: 'Ice Cream', active: true },
-  { id: 11, name: 'Mango', description: 'Fresh Mango with Chunks', badge: 'Egg and Gluten Free', category: 'Ice Cream', active: true },
-  { id: 12, name: 'Mint Chocolate Chip', description: 'Mint Infused Ice Cream layered with Dark Chocolate Chips', badge: '', category: 'Ice Cream', active: true },
-  { id: 13, name: 'FALOODA', description: 'Basil seeds, Vermicelli noodles Saffron and Rose Petals Infused Ice Cream', badge: '', category: 'Ice Cream', active: true },
-  { id: 14, name: 'Masala Chai', description: 'Chai Tea Infused with Cinnamon, Black Pepper, Nutmeg, Fennel and Ginger', badge: '', category: 'Ice Cream', active: true },
-  { id: 15, name: 'Strawberry Lychee', description: 'Lychee Strawberry Ice Cream Infused With Lychee Pieces', badge: 'Egg and Gluten Free', category: 'Ice Cream', active: true },
-  { id: 16, name: 'Black Sesame', description: 'Roasted Black Sesame Infused Ice Cream', badge: 'Egg and Gluten Free', category: 'Ice Cream', active: true },
-  { id: 17, name: 'Vegan Coconut Choco', description: 'Dairy-Free Ice Cream Made with Plant-Based Milk and Infused with real Cocoa And Coconut Flakes', badge: 'Egg and Gluten Free', category: 'Ice Cream', active: true },
-  { id: 18, name: 'Dubai Chocolate', description: 'Rich chocolate infused with pistachio cream and kataifi pastry', badge: '', category: 'Ice Cream', active: true },
-  { id: 19, name: 'Strawberry ShortCake', description: 'Home made yellow Cake Layered with Strawberry Infused Ice Cream', badge: '', category: 'Ice Cream', active: true },
-  { id: 20, name: 'Peanut Butter Cup', description: 'Peanut Infused Ice Cream Layered with Peanut Butter & Homemade Chocolate Shell', badge: '', category: 'Ice Cream', active: true },
-  { id: 21, name: 'Signature Milkshakes', description: 'Salted Caramel Pretzels, Dubai Chocolate, Chocolate Raspberry, Nutella, Midnight Cookies and Cream, Peanut Butter', badge: '', category: 'Drinks', active: true },
-  { id: 22, name: 'Matcha & Hot Drinks', description: 'Expresso Coffee, Hot Chocolate, Expresso Latte, Taro Latte, UBE Matcha, Mango Matcha, Strawberry Matcha Latte, Biscoff Matcha', badge: '', category: 'Drinks', active: true },
-  { id: 23, name: 'Theory Refreshers', description: 'Tropican Fizz, Indigo Fizz, Sunset Dragon, Guava Fizz, Rasberry Wave, Pink Lychee Fizz, Mango Wave, Citrus Tea, Ocean Bliss, Passion Raz', badge: '', category: 'Drinks', active: true },
-  { id: 24, name: 'Bubble Waffle', description: 'Hong Kong style crispy bubble waffles served with ice cream scoops', badge: '', category: 'Specialty', active: true }
-];
 
-const SEED_REVIEWS = [
-  { id: 1, name: 'Indrayani T', text: 'Thank you for bringing the ice cream in bubble waffle style to Livingston! The plethora of flavours, different cone styles, beautiful ambience, and super friendly staff: makes it a must try spot for all year around!', rating: 5, featured: true, date: '2025-01-15' },
-  { id: 2, name: 'Sarath Patibandla', text: 'One of the best desserts I\'ve ever had. The bubble waffle was warm, crisp on the outside, and fluffy inside — the perfect contrast to the cold ice cream. And the drizzle of chocolate sauce on top? Pure magic.', rating: 5, featured: true, date: '2025-01-10' },
-  { id: 3, name: 'D Pat', text: 'This ice cream shop is a hidden gem with a sleek, modern space and a menu full of handcrafted, small-batch flavors that are anything but ordinary.', rating: 5, featured: false, date: '2024-12-20' },
-  { id: 4, name: 'Jeffrey Nadeau', text: 'Loved the shop and owner. Was so kind and nice. Explained to us how he made the ice cream and they were ALL delicious. Very distinct flavors! Got the Black Sesame and Strawberry with Lychee ice cream. Definitely come here for a treat!', rating: 5, featured: false, date: '2024-12-01' },
-  { id: 5, name: 'Michael Scott', text: 'Owner was super friendly when we arrived, offered samples of a bunch of flavors too! Very unique in house made flavors. Vegan and gluten free options too! Highly recommend.', rating: 5, featured: false, date: '2024-11-20' }
-];
-
-const SEED_MESSAGES = [
-  { id: 1, name: 'John Doe', email: 'john@example.com', message: 'Hello! I would love to book your shop for a birthday party of 25 people next Saturday. Do you have options for custom bubble waffle decorations?', is_read: false, read: false, date: '2026-05-27' },
-  { id: 2, name: 'Samantha Smith', email: 'samantha.s@gmail.com', message: 'Your Pistachio ice cream is absolutely delicious! Best I have ever tasted. Keep up the amazing work.', is_read: true, read: true, date: '2026-05-25' },
-  { id: 3, name: 'Emily Rose', email: 'emily@corporate.com', message: 'Hi there, do you provide catering services for corporate events? We have an event in Livingston next month and would love a custom ice cream bar.', is_read: false, read: false, date: '2026-05-24' }
-];
-
-const SEED_SETTINGS = {
-  name: 'Scoop Theory',
-  address: '129 S Livingston Ave, Livingston NJ - 07039',
-  phone: '(201) 687-1228',
-  email: 'info@scoop-theory.com',
-  capacity: '70',
-  hours: { monWed: '2PM - 9PM', thurs: '2PM - 9:30PM', friSat: '1PM - 10PM', sun: '1PM - 9:30PM' },
-  social: { instagram: 'https://www.instagram.com/scoop.theory', facebook: 'https://www.facebook.com/share/1D5q63g5DV/', tiktok: 'https://www.tiktok.com/@scoop.theory' }
-};
 
 // ─────────────────────────────────────────────
-// SANDBOX PERSISTENCE ROUTER
-// ─────────────────────────────────────────────
-const handleSandboxRequest = (method, url, data) => {
-  const cleanUrl = url.split('?')[0];
-  const getQueryId = () => {
-    const match = url.match(/[?&]id=(\d+)/);
-    return match ? parseInt(match[1], 10) : null;
-  };
-
-  // Seed default data if not present
-  if (!localStorage.getItem('scoop_flavors')) {
-    localStorage.setItem('scoop_flavors', JSON.stringify(SEED_FLAVORS));
-    localStorage.setItem('scoop_reviews', JSON.stringify(SEED_REVIEWS));
-    localStorage.setItem('scoop_messages', JSON.stringify(SEED_MESSAGES));
-    localStorage.setItem('scoop_settings', JSON.stringify(SEED_SETTINGS));
-  }
-
-  const getStore = (key) => JSON.parse(localStorage.getItem(key));
-  const setStore = (key, val) => localStorage.setItem(key, JSON.stringify(val));
-
-  if (cleanUrl === '/menu.php') {
-    let items = getStore('scoop_flavors') || [];
-    if (method === 'GET') return { data: items };
-    if (method === 'POST') {
-      const newItem = { ...data, id: Date.now() };
-      items.push(newItem);
-      setStore('scoop_flavors', items);
-      return { data: newItem };
-    }
-    if (method === 'PUT') {
-      const updatedItem = { ...data };
-      items = items.map(i => i.id === updatedItem.id ? updatedItem : i);
-      setStore('scoop_flavors', items);
-      return { data: updatedItem };
-    }
-    if (method === 'DELETE') {
-      const id = getQueryId() || (data && data.id);
-      items = items.filter(i => i.id !== id);
-      setStore('scoop_flavors', items);
-      return { data: { success: true } };
-    }
-  }
-
-  if (cleanUrl === '/reviews.php') {
-    let items = getStore('scoop_reviews') || [];
-    if (method === 'GET') return { data: items };
-    if (method === 'POST') {
-      const newItem = { ...data, id: Date.now(), date: data.date || new Date().toISOString().slice(0, 10), rating: parseInt(data.rating || 5, 10), featured: !!data.featured };
-      items.unshift(newItem);
-      setStore('scoop_reviews', items);
-      return { data: newItem };
-    }
-    if (method === 'PUT') {
-      const id = data.id;
-      items = items.map(r => r.id === id ? { ...r, ...data } : r);
-      setStore('scoop_reviews', items);
-      const updated = items.find(r => r.id === id);
-      return { data: updated };
-    }
-    if (method === 'DELETE') {
-      const id = getQueryId() || (data && data.id);
-      items = items.filter(r => r.id !== id);
-      setStore('scoop_reviews', items);
-      return { data: { success: true } };
-    }
-  }
-
-  if (cleanUrl === '/messages.php') {
-    let items = getStore('scoop_messages') || [];
-    if (method === 'GET') return { data: items };
-    if (method === 'POST') {
-      const newItem = { ...data, id: Date.now(), read: false, is_read: false, date: new Date().toISOString().slice(0, 10) };
-      items.unshift(newItem);
-      setStore('scoop_messages', items);
-      return { data: { success: true } };
-    }
-    if (method === 'PUT') {
-      const id = data.id;
-      items = items.map(m => m.id === id ? { ...m, read: true, is_read: true } : m);
-      setStore('scoop_messages', items);
-      return { data: { success: true } };
-    }
-    if (method === 'DELETE') {
-      const id = getQueryId() || (data && data.id);
-      items = items.filter(m => m.id !== id);
-      setStore('scoop_messages', items);
-      return { data: { success: true } };
-    }
-  }
-
-  if (cleanUrl === '/settings.php') {
-    let settings = getStore('scoop_settings') || SEED_SETTINGS;
-    if (method === 'GET') return { data: settings };
-    if (method === 'POST') {
-      settings = { ...settings, ...data };
-      setStore('scoop_settings', settings);
-      return { data: settings };
-    }
-  }
-
-  throw new Error(`Unhandled sandbox route: ${method} ${url}`);
-};
-
-// ─────────────────────────────────────────────
-// AXIOS INSTANCE WITH SANDBOX INTERCEPTORS
+// AXIOS INSTANCE
 // ─────────────────────────────────────────────
 const api = axios.create({
   baseURL: API_BASE,
@@ -192,41 +36,6 @@ api.interceptors.request.use(
     return config;
   },
   (error) => Promise.reject(error)
-);
-
-api.interceptors.response.use(
-  (response) => {
-    if (typeof response.data === 'string' && response.data.trim().startsWith('<!DOCTYPE')) {
-      console.warn('API returned index.html redirect. Redirecting to Local Storage Sandbox...');
-      const method = response.config.method.toUpperCase();
-      const url = response.config.url;
-      const data = response.config.data ? JSON.parse(response.config.data) : null;
-      const sandboxRes = handleSandboxRequest(method, url, data);
-      window.__scoop_sandbox = true;
-      return { ...response, data: sandboxRes.data };
-    }
-    return response;
-  },
-  async (error) => {
-    console.warn(`API failed: ${error.message}. Redirecting request to Local Storage Sandbox...`);
-    try {
-      const method = error.config.method.toUpperCase();
-      const url = error.config.url;
-      const data = error.config.data ? JSON.parse(error.config.data) : null;
-      const sandboxRes = handleSandboxRequest(method, url, data);
-      window.__scoop_sandbox = true;
-      return {
-        ...error.response,
-        status: 200,
-        data: sandboxRes.data,
-        headers: {},
-        config: error.config,
-      };
-    } catch (sandboxErr) {
-      console.error('Sandbox handler error:', sandboxErr);
-      return Promise.reject(error);
-    }
-  }
 );
 
 // ─────────────────────────────────────────────
@@ -313,21 +122,21 @@ const Skeleton = ({ width = '100%', height = '16px', radius = '8px' }) => (
 // ─────────────────────────────────────────────
 const ApiError = ({ onRetry }) => (
   <div style={{
-    background: '#fff8f2', border: '1px solid #ffe3cb', borderRadius: '12px',
+    background: '#fff0f0', border: '1px solid #ffc0c0', borderRadius: '12px',
     padding: '20px 24px', display: 'flex', alignItems: 'center', gap: '16px',
     marginBottom: '20px',
   }}>
-    <Icon name="refresh" size={24} style={{ color: '#f39c12', flexShrink: 0 }} />
+    <Icon name="x" size={24} style={{ color: '#c0392b', flexShrink: 0 }} />
     <div style={{ flex: 1 }}>
-      <p style={{ margin: 0, fontWeight: '700', color: '#d35400', fontSize: '15px' }}>🖥️ Running in Local Sandbox Mode</p>
-      <p style={{ margin: '4px 0 0', color: '#e67e22', fontSize: '13px', lineHeight: '1.5' }}>
-        The PHP backend is not yet connected. We have automatically activated a **Local Sandbox (using localStorage)**. You can fully add, edit, or delete items — all changes will save in your browser!
+      <p style={{ margin: 0, fontWeight: '700', color: '#c0392b', fontSize: '15px' }}>⚠️ API Connection Error</p>
+      <p style={{ margin: '4px 0 0', color: '#e74c3c', fontSize: '13px', lineHeight: '1.5' }}>
+        Failed to connect to the live backend API. Please check your network connection or server status.
       </p>
     </div>
     <button onClick={onRetry} style={{
       display: 'flex', alignItems: 'center', gap: '6px', padding: '8px 16px',
-      border: '1px solid #ffe3cb', borderRadius: '8px', background: '#fff',
-      color: '#d35400', fontSize: '13px', fontWeight: '700', cursor: 'pointer', fontFamily: 'inherit',
+      border: '1px solid #ffc0c0', borderRadius: '8px', background: '#fff',
+      color: '#c0392b', fontSize: '13px', fontWeight: '700', cursor: 'pointer', fontFamily: 'inherit',
     }}>
       <Icon name="refresh" size={14} /> Retry API Connection
     </button>

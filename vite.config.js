@@ -10,7 +10,14 @@ export default defineConfig({
   server: {
     port: 3000,
     open: true,
-    host: true
+    host: true,
+    proxy: {
+      '/api': {
+        target: 'https://gray-gerbil-641296.hostingersite.com',
+        changeOrigin: true,
+        secure: true,
+      }
+    }
   },
   build: {
     outDir: 'dist',
