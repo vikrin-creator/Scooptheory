@@ -6,7 +6,7 @@ import { seoData } from '../data/seoData';
 
 // In dev: Vite proxy forwards /api/* to Hostinger backend (bypasses CORS)
 // In production: relative /api path works since both are on the same domain
-const API_BASE = '/api';
+const API_BASE = import.meta.env.VITE_API_URL || '/api';
 
 const Menu = () => {
   const [flavors, setFlavors] = useState([]);
