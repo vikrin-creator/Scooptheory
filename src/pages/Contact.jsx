@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import SEOHead from '../components/SEOHead';
 import { seoData } from '../data/seoData';
-
-const API_BASE = import.meta.env.VITE_API_URL || '/api';
+const rawApiUrl = import.meta.env.VITE_API_URL || '/api';
+const API_BASE = rawApiUrl.endsWith('/') ? rawApiUrl.slice(0, -1) : rawApiUrl;
 
 const Contact = () => {
   const [form, setForm]       = useState({ name: '', email: '', message: '' });

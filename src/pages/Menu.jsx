@@ -5,7 +5,8 @@ import SEOHead from '../components/SEOHead';
 import { seoData } from '../data/seoData';
 
 // Always use the real Hostinger API — .env.development takes priority in dev mode
-const API_BASE = import.meta.env.VITE_API_URL || 'https://gray-gerbil-641296.hostingersite.com/api';
+const rawApiUrl = import.meta.env.VITE_API_URL || 'https://gray-gerbil-641296.hostingersite.com/api';
+const API_BASE = rawApiUrl.endsWith('/') ? rawApiUrl.slice(0, -1) : rawApiUrl;
 
 const Menu = () => {
   const [flavors, setFlavors] = useState([]);

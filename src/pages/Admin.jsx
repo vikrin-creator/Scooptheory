@@ -7,7 +7,8 @@ import { Routes, Route, useNavigate, useLocation, NavLink, Link } from 'react-ro
 // Change this to your Hostinger domain when deployed
 // e.g. 'https://scoop-theory.com/api'
 // ─────────────────────────────────────────────
-const API_BASE = import.meta.env.VITE_API_URL || '/api/';
+const rawApiUrl = import.meta.env.VITE_API_URL || '/api/';
+const API_BASE = rawApiUrl.endsWith('/') ? rawApiUrl : rawApiUrl + '/';
 const ADMIN_PASSWORD = 'ScoopAdmin2025';
 
 // ─────────────────────────────────────────────
