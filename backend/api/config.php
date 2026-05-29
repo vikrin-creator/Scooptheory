@@ -74,7 +74,7 @@ function setCORSHeaders(): void {
         header('Access-Control-Allow-Origin: *');
     }
     header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
-    header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
+    header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With, X-HTTP-Method-Override');
     header('Access-Control-Allow-Credentials: true');
     header('Content-Type: application/json; charset=utf-8');
     header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");

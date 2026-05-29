@@ -4,7 +4,8 @@ import axios from 'axios';
 import SEOHead from '../components/SEOHead';
 import { seoData } from '../data/seoData';
 
-const API_BASE = import.meta.env.VITE_API_URL || '/api';
+// Always use the real Hostinger API — .env.development takes priority in dev mode
+const API_BASE = import.meta.env.VITE_API_URL || 'https://gray-gerbil-641296.hostingersite.com/api';
 
 const Menu = () => {
   const [flavors, setFlavors] = useState([]);
@@ -50,16 +51,28 @@ const Menu = () => {
     let active = true;
     const fetchMenu = async () => {
       try {
-        const response = await axios.get(`${API_BASE}/menu.php?t=${Date.now()}`);
+        const url = `${API_BASE}/menu.php?t=${Date.now()}`;
+        console.log('[Menu] Fetching from:', url);
+        const response = await axios.get(url, {
+          headers: {
+            'Cache-Control': 'no-cache, no-store, must-revalidate',
+            'Pragma': 'no-cache',
+          },
+          timeout: 10000,
+        });
+        console.log('[Menu] API response received:', response.data?.length, 'items');
         if (active) {
           if (Array.isArray(response.data) && response.data.length > 0) {
+            console.log('[Menu] Using live database data ✓');
             setFlavors(response.data);
           } else {
+            console.warn('[Menu] API returned empty array — using fallback data');
             setFlavors(fallbackFlavors);
           }
         }
       } catch (error) {
-        console.error("Failed to load dynamic menu, using fallback:", error);
+        console.error('[Menu] API fetch failed — using fallback data:', error.message);
+        console.error('[Menu] Attempted URL:', `${API_BASE}/menu.php`);
         if (active) {
           setFlavors(fallbackFlavors);
         }
@@ -83,13 +96,11 @@ const Menu = () => {
     return '/images/BubbleWaffle.png';
   };
 
-  const currentFlavors = flavors.length > 0 ? flavors : fallbackFlavors;
+  // Drinks & Specialty items (only active)
+  const nonIceCreamItems = flavors.filter(item => item.active && item.category !== 'Ice Cream');
   
-  // Drinks & Specialty items
-  const nonIceCreamItems = currentFlavors.filter(item => item.active && item.category !== 'Ice Cream');
-  
-  // Ice cream items
-  const iceCreamItems = currentFlavors.filter(item => item.active && item.category === 'Ice Cream');
+  // Ice cream items (only active)
+  const iceCreamItems = flavors.filter(item => item.active && item.category === 'Ice Cream');
 
   if (loading) {
     return (
