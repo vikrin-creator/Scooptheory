@@ -62,6 +62,7 @@ const Menu = () => {
           timeout: 10000,
         });
         console.log('[Menu] API response received:', response.data?.length, 'items');
+        console.log('MENU SOURCE', response.data);
         if (active) {
           if (Array.isArray(response.data) && response.data.length > 0) {
             console.log('[Menu] Using live database data ✓');
