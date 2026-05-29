@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, memo } from 'react';
 import axios from 'axios';
-import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import { Routes, Route, useNavigate, useLocation, NavLink } from 'react-router-dom';
 
 // ─────────────────────────────────────────────
 // CONFIG
@@ -965,9 +965,12 @@ const AdminPanel = ({ onLogout }) => {
 
   // Detect active tab from URL path (e.g. /admin/menu -> menu)
   const getActiveTab = () => {
-    const pathParts = location.pathname.split('/').filter(Boolean);
-    const subTab = pathParts[1];
-    return subTab || 'dashboard';
+    const path = location.pathname.toLowerCase();
+    if (path.includes('/admin/menu')) return 'menu';
+    if (path.includes('/admin/reviews')) return 'reviews';
+    if (path.includes('/admin/messages')) return 'messages';
+    if (path.includes('/admin/settings')) return 'settings';
+    return 'dashboard';
   };
 
   const activeTab = getActiveTab();
@@ -1042,15 +1045,40 @@ const AdminPanel = ({ onLogout }) => {
 
         <nav style={{ flex: 1, padding: '16px 12px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
           {tabs.map(tab => {
-            const active = activeTab === tab.id;
             const targetPath = tab.id === 'dashboard' ? '/admin' : `/admin/${tab.id}`;
             return (
-              <button key={tab.id} onClick={() => navigate(targetPath)} style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '11px 14px', borderRadius: '12px', border: 'none', background: active ? 'rgba(229,161,166,0.15)' : 'transparent', color: active ? '#E5A1A6' : 'rgba(247,212,212,0.5)', fontSize: '14px', fontWeight: active ? '700' : '500', cursor: 'pointer', fontFamily: 'inherit', position: 'relative', textAlign: 'left', width: '100%' }}>
-                <Icon name={tab.icon} size={18} />
-                {tab.label}
-                {tab.badge > 0 && <span style={{ marginLeft: 'auto', background: '#E5A1A6', color: '#fff', fontSize: '11px', fontWeight: '800', padding: '1px 7px', borderRadius: '99px' }}>{tab.badge}</span>}
-                {active && <div style={{ position: 'absolute', left: 0, top: '50%', transform: 'translateY(-50%)', width: '3px', height: '20px', background: '#E5A1A6', borderRadius: '99px' }} />}
-              </button>
+              <NavLink
+                key={tab.id}
+                to={targetPath}
+                end={tab.id === 'dashboard'}
+                style={({ isActive }) => ({
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '12px',
+                  padding: '11px 14px',
+                  borderRadius: '12px',
+                  border: 'none',
+                  background: isActive ? 'rgba(229,161,166,0.15)' : 'transparent',
+                  color: isActive ? '#E5A1A6' : 'rgba(247,212,212,0.5)',
+                  fontSize: '14px',
+                  fontWeight: isActive ? '700' : '500',
+                  cursor: 'pointer',
+                  fontFamily: 'inherit',
+                  position: 'relative',
+                  textAlign: 'left',
+                  width: '100%',
+                  textDecoration: 'none'
+                })}
+              >
+                {({ isActive }) => (
+                  <>
+                    <Icon name={tab.icon} size={18} />
+                    {tab.label}
+                    {tab.badge > 0 && <span style={{ marginLeft: 'auto', background: '#E5A1A6', color: '#fff', fontSize: '11px', fontWeight: '800', padding: '1px 7px', borderRadius: '99px' }}>{tab.badge}</span>}
+                    {isActive && <div style={{ position: 'absolute', left: 0, top: '50%', transform: 'translateY(-50%)', width: '3px', height: '20px', background: '#E5A1A6', borderRadius: '99px' }} />}
+                  </>
+                )}
+              </NavLink>
             );
           })}
         </nav>
