@@ -44,6 +44,7 @@ function getDB(): PDO|MockPDO {
                     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
                     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
                     PDO::ATTR_EMULATE_PREPARES   => false,
+                    PDO::ATTR_TIMEOUT            => 2, // 2 seconds timeout to prevent long hangs
                 ]
             );
         } catch (PDOException $e) {
