@@ -177,6 +177,22 @@ const api = axios.create({
   timeout: 10000,
 });
 
+// Request Interceptor to translate PUT/DELETE into POST with override headers
+api.interceptors.request.use(
+  (config) => {
+    const method = config.method ? config.method.toUpperCase() : 'GET';
+    if (method === 'PUT' || method === 'DELETE') {
+      config.headers['X-HTTP-Method-Override'] = method;
+      config.method = 'POST';
+      if (config.data && typeof config.data === 'object' && !Array.isArray(config.data)) {
+        config.data._method = method;
+      }
+    }
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
+
 api.interceptors.response.use(
   (response) => {
     if (typeof response.data === 'string' && response.data.trim().startsWith('<!DOCTYPE')) {

@@ -7,6 +7,28 @@ define('DB_NAME', 'u177524058_scooptheory');
 define('DB_USER', 'u177524058_scooptheory');
 define('DB_PASS', 'Devima@0812');
 
+// ─────────────────────────────────────────────
+// HTTP METHOD OVERRIDE FOR RESTRICTIVE HOSTS
+// ─────────────────────────────────────────────
+// Allows PUT and DELETE requests to be sent as POST with an override header or parameter
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $methodOverride = null;
+    if (isset($_SERVER['HTTP_X_HTTP_METHOD_OVERRIDE'])) {
+        $methodOverride = strtoupper($_SERVER['HTTP_X_HTTP_METHOD_OVERRIDE']);
+    } else {
+        $input = file_get_contents('php://input');
+        $data = json_decode($input, true);
+        if (is_array($data) && isset($data['_method'])) {
+            $methodOverride = strtoupper($data['_method']);
+        } elseif (isset($_POST['_method'])) {
+            $methodOverride = strtoupper($_POST['_method']);
+        }
+    }
+    if ($methodOverride && in_array($methodOverride, ['PUT', 'DELETE', 'PATCH'], true)) {
+        $_SERVER['REQUEST_METHOD'] = $methodOverride;
+    }
+}
+
 /**
  * Returns a PDO database connection or a MockPDO JSON database fallback.
  */
