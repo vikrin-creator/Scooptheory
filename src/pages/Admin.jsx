@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, memo } from 'react';
 import axios from 'axios';
-import { Routes, Route, useNavigate, useLocation, NavLink } from 'react-router-dom';
+import { Routes, Route, useNavigate, useLocation, NavLink, Link } from 'react-router-dom';
 
 // ─────────────────────────────────────────────
 // CONFIG
@@ -1034,13 +1034,13 @@ const AdminPanel = ({ onLogout }) => {
       {/* Sidebar */}
       <aside style={{ width: `${sidebarWidth}px`, background: 'linear-gradient(180deg, #2C1A19 0%, #1a0a09 100%)', display: 'flex', flexDirection: 'column', position: 'fixed', top: 0, left: 0, bottom: 0, zIndex: 100, boxShadow: '4px 0 24px rgba(0,0,0,0.15)' }}>
         <div style={{ padding: '28px 20px 20px', borderBottom: '1px solid rgba(247,212,212,0.08)' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <Link to="/admin" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
             <div style={{ width: '40px', height: '40px', background: 'linear-gradient(135deg, #E5A1A6, #d4788e)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '22px', flexShrink: 0 }}>🍦</div>
             <div>
               <p style={{ color: '#F7D4D4', fontWeight: '800', fontSize: '15px', margin: 0 }}>Scoop Theory</p>
               <p style={{ color: 'rgba(247,212,212,0.4)', fontSize: '11px', margin: 0 }}>Admin Portal</p>
             </div>
-          </div>
+          </Link>
         </div>
 
         <nav style={{ flex: 1, padding: '16px 12px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
